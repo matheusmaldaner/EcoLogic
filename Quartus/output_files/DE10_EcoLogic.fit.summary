@@ -1,12 +1,12 @@
-Fitter Status : Failed - Fri Oct 25 19:04:02 2024
+Fitter Status : Failed - Fri Oct 25 19:32:15 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : DE10_EcoLogic
 Top-level Entity Name : logic_network
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 1 / 49,760 ( < 1 % )
-    Total combinational functions : 1 / 49,760 ( < 1 % )
+Total logic elements : 7,408 / 49,760 ( 15 % )
+    Total combinational functions : 7,408 / 49,760 ( 15 % )
     Dedicated logic registers : 0 / 49,760 ( 0 % )
 Total registers : 0
 Total pins : 410 / 360 ( 114 % )
