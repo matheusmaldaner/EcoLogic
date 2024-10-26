@@ -12,7 +12,7 @@ architecture Behavioral of logic_network is
     signal layer0_outputs: std_logic_vector(2559 downto 0);
 
 begin
-    layer0_outputs(0) <= a; 
+    layer0_outputs(0) <= a;
     layer0_outputs(1) <= b and not a;
     layer0_outputs(2) <= not (a xor b);
     layer0_outputs(3) <= a and not b;

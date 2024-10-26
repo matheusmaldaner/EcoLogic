@@ -1,16 +1,16 @@
-Analysis & Synthesis Status : Successful - Fri Oct 25 19:32:11 2024
+Analysis & Synthesis Status : Failed - Sat Oct 26 13:43:19 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : DE10_EcoLogic
-Top-level Entity Name : logic_network
+Top-level Entity Name : model_001_logic_network
 Family : MAX 10
-Total logic elements : 7,407
-    Total combinational functions : 7,407
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 410
-Total virtual pins : 0
-Total memory bits : 0
-Embedded Multiplier 9-bit elements : 0
-Total PLLs : 0
-UFM blocks : 0
-ADC blocks : 0
+Total logic elements : N/A until Partition Merge
+    Total combinational functions : N/A until Partition Merge
+    Dedicated logic registers : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total memory bits : N/A until Partition Merge
+Embedded Multiplier 9-bit elements : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
+UFM blocks : N/A until Partition Merge
+ADC blocks : N/A until Partition Merge

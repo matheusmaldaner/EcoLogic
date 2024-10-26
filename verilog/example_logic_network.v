@@ -1,9 +1,12 @@
 module logic_network(
-    input wire [399:0] inputs,
-    output wire [9:0] outputs
+	// Whatever i need for input SRAM
+   // input wire [399:0] inputs,
+    output reg [9:0] classification
 );
 
+	 wire [399:0] inputs;
     wire [2499:0] layer0_outputs;
+	 wire [2499:0] outputs;
 
     assign layer0_outputs[0] = ~(inputs[303]) | (inputs[179]);
     assign layer0_outputs[1] = inputs[193];
@@ -5005,4 +5008,39 @@ module logic_network(
     assign outputs[2497] = ~((layer0_outputs[2089]) & (layer0_outputs[2049]));
     assign outputs[2498] = (layer0_outputs[1314]) & ~(layer0_outputs[537]);
     assign outputs[2499] = ~((layer0_outputs[535]) | (layer0_outputs[1655]));
+	 
+	 // Sum and argmax logic
+	 reg [9:0] sums [0:9];                     // Array to store sums for each group of 250 bits
+    reg [9:0] max_sum;                        // Variable for the maximum sum
+    reg [3:0] max_index;                      // 4-bit output for index of maximum sum (0 to 9)
+    integer i, j;
+	 
+    always @* begin
+        // Initialize sums
+        for (i = 0; i < 10; i = i + 1) begin
+            sums[i] = 0; // Reset each sum to 0
+        end
+
+        // Sum each group of 250 bits in outputs
+        for (i = 0; i < 10; i = i + 1) begin
+            for (j = 0; j < 250; j = j + 1) begin
+                sums[i] = sums[i] + outputs[i * 250 + j]; // Sum the elements in each group
+            end
+        end
+
+        // Find argmax
+        max_index = 0;
+        max_sum = sums[0];
+        for (i = 1; i < 10; i = i + 1) begin
+            if (sums[i] > max_sum) begin
+                max_sum = sums[i];
+                max_index = i;
+            end
+        end
+		  
+		  // Generate one-hot encoding for classification
+        classification = 10'b0; // Reset classification
+        classification[max_index] = 1'b1; // Set the corresponding index to 1
+    end
+	 
 endmodule

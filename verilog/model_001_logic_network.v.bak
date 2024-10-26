@@ -1,10 +1,9 @@
 module logic_network(
     input wire [1023:0] inputs,
-    output wire [9:0] classification
+    output wire [9:0] outputs
 );
 
     wire [2559:0] layer0_outputs;
-	 wire [2599:0] outputs;
 
     assign layer0_outputs[0] = inputs[615];
     assign layer0_outputs[1] = (inputs[688]) & ~(inputs[861]);
