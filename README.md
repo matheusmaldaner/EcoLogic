@@ -80,8 +80,8 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 | 8704000%  | 907.78           | 202.54    | 78%        |
 | 11264000% | 1086.52          | 239.18    | 78%        |
 
-![Alt text](https://github.com/matheusmaldaner/EcoLogic/img/Scaling.png?raw=true)
-![Alt text](https://github.com/matheusmaldaner/EcoLogic/img/Decrease.png?raw=true)
+<img src="https://i.imgur.com/xxjD50Q.png" alt="inference times" width="400"/> <img src="https://i.imgur.com/6bc2icn.png" alt="comparison" width="410"/>
+
 
 
 ---
