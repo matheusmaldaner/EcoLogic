@@ -1,0 +1,272 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/lando/Desktop/DigitalDesign/Lab6
+Eargmax
+Z0 w1729978551
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 dC:/Users/lando/Documents/GitHub/EcoLogic/ModelSim
+Z7 8C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd
+Z8 FC:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd
+l0
+L6
+VQf=mea[=7PMIUKTG4^3RZ3
+!s100 zWVW_YTKe<9F]nDXZ8BJ02
+Z9 OV;C;10.5b;63
+32
+Z10 !s110 1729979773
+!i10b 1
+Z11 !s108 1729979773.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd|
+Z13 !s107 C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd|
+!i113 1
+Z14 o-work work -2002 -explicit
+Z15 tExplicit 1 CvgOpt 0
+Abehavioral
+R1
+R2
+R3
+R4
+R5
+Z16 DEx4 work 6 argmax 0 22 Qf=mea[=7PMIUKTG4^3RZ3
+l22
+L15
+V1:Qh5<dQDMB@i:=U_3k_Z2
+!s100 4P6NV4oDL4fO4JCinoQZB0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 1
+R14
+R15
+Abhv
+R1
+R4
+R5
+DEx4 work 6 argmax 0 22 GzZ9cMUJP5<7WL>n3]LG10
+l21
+L15
+VE1kc7TAEidKdDl`bC;mLj2
+!s100 C`GaizCB;253KLd<2FZQS0
+R9
+32
+!s110 1729976642
+!i10b 1
+!s108 1729976642.000000
+R12
+R13
+!i113 1
+R14
+R15
+w1729976609
+Eargmax_tb
+Z17 w1729979765
+Z18 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R1
+R4
+R5
+R6
+Z19 8C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd
+Z20 FC:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd
+l0
+L8
+VTT92g[VD7@C=fM3djP3:F2
+!s100 _liH7oIV5c9mVl=ESWAcD0
+R9
+32
+R10
+!i10b 1
+R11
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd|
+Z22 !s107 C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd|
+!i113 1
+R14
+R15
+Atb
+R2
+R3
+R16
+R18
+R1
+R4
+R5
+Z23 DEx4 work 9 argmax_tb 0 22 TT92g[VD7@C=fM3djP3:F2
+l17
+L11
+VWJhG<`h1C5`gg621kb[`Q1
+!s100 aVjc_cCbE_UdXh]HDQRoB1
+R9
+32
+R10
+!i10b 1
+R11
+R21
+R22
+!i113 1
+R14
+R15
+vlogic_network
+R10
+!i10b 1
+!s100 L5ak;nhnP[QjHiN644:=Y2
+ID>SK?nWH50oTWK_m?BFhT2
+VDg1SIo80bB@j0V0VzS_@n1
+R6
+w1729976115
+8C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v
+FC:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v
+L0 1
+OV;L;10.5b;63
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v|
+!i113 1
+o-work work
+tCvgOpt 0
+Erom
+Z24 w1729965681
+Z25 DPx9 altera_mf 20 altera_mf_components 0 22 gV:l9C^?PSb6]b5V?_jR@3
+R4
+R5
+R6
+Z26 8C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd
+Z27 FC:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd
+l0
+L43
+VgIW4UgX_1`R4[nIF[`AER3
+!s100 URLdH[K;Qz4e6=KN@@>KB0
+R9
+32
+R10
+!i10b 1
+R11
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd|
+Z29 !s107 C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd|
+!i113 1
+R14
+R15
+Asyn
+R25
+R4
+R5
+Z30 DEx4 work 3 rom 0 22 gIW4UgX_1`R4[nIF[`AER3
+l58
+L54
+V3;2KE^Eh:B=AP0NbjW0b_3
+!s100 Ka4acOb55=l1jVbRL7NEd2
+R9
+32
+R10
+!i10b 1
+R11
+R28
+R29
+!i113 1
+R14
+R15
+Etop_level
+Z31 w1729979350
+R4
+R5
+R6
+Z32 8C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd
+Z33 FC:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd
+l0
+L4
+V]Ii<>llKC22J;F6]@U@:=2
+!s100 4Y[1_AjAhU8h=lF8KKE`52
+R9
+32
+R10
+!i10b 1
+R11
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd|
+Z35 !s107 C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd|
+!i113 1
+R14
+R15
+Abhv
+R25
+R30
+R1
+R2
+R3
+R16
+R4
+R5
+Z36 DEx4 work 9 top_level 0 22 ]Ii<>llKC22J;F6]@U@:=2
+l24
+L12
+V`:D^8mjDPC`_AY`LChe6j2
+!s100 j=G=V?8QA6]JY=C0G_G[03
+R9
+32
+R10
+!i10b 1
+R11
+R34
+R35
+!i113 1
+R14
+R15
+Etop_level_tb
+Z37 w1729974080
+R18
+R1
+R4
+R5
+R6
+Z38 8C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd
+Z39 FC:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd
+l0
+L8
+VBi:KQiX5zjzRR=8V1ahbY2
+!s100 3z8g;=bdBc0OmKDm>bn=H1
+R9
+32
+R10
+!i10b 1
+R11
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd|
+Z41 !s107 C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd|
+!i113 1
+R14
+R15
+Atb
+R36
+R18
+R1
+R4
+R5
+DEx4 work 12 top_level_tb 0 22 Bi:KQiX5zjzRR=8V1ahbY2
+l17
+L11
+V9>^C3FfmG<^c5KlF0n;?62
+!s100 SKl3^?`4X8eW`[Bjid[eC0
+R9
+32
+R10
+!i10b 1
+R11
+R40
+R41
+!i113 1
+R14
+R15

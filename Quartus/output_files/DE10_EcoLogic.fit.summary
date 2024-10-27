@@ -1,0 +1,18 @@
+Fitter Status : Successful - Sat Oct 26 17:58:07 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : DE10_EcoLogic
+Top-level Entity Name : top_level
+Family : MAX 10
+Device : 10M50DAF484C6GES
+Timing Models : Preliminary
+Total logic elements : 436 / 49,760 ( < 1 % )
+    Total combinational functions : 419 / 49,760 ( < 1 % )
+    Dedicated logic registers : 135 / 49,760 ( < 1 % )
+Total registers : 135
+Total pins : 21 / 360 ( 6 % )
+Total virtual pins : 0
+Total memory bits : 226,304 / 1,677,312 ( 13 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

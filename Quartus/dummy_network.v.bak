@@ -1,0 +1,7 @@
+module dummy_network(
+    input wire [255:0] inputs,
+    output wire [255:0] outputs
+);
+
+    assign outputs = inputs;
+endmodule
