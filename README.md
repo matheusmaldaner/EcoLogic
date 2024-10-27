@@ -80,6 +80,3 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 ## Contributing 🤝
 
 Contributions are welcome! Please fork this repository and submit a pull request. Ensure that your code passes all tests and adheres to our style guide.
----
-
-Let me know if you'd like more customization or any additional sections.
