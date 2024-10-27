@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity logic_network is
     port (
         inputs : in std_logic_vector(255 downto 0);
-        outputs : out std_logic_vector(9 downto 0)
+        outputs : out std_logic_vector(10239 downto 0)
     );
 end logic_network;
 

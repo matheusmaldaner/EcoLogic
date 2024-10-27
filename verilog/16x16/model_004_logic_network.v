@@ -1,6 +1,6 @@
 module logic_network(
     input wire [255:0] inputs,
-    output wire [9:0] outputs
+    output wire [10239:0] outputs
 );
 
     wire [10239:0] layer0_outputs;
