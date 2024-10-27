@@ -63,7 +63,16 @@ seg5[4] << <GND>
 seg5[5] << <GND>
 seg5[6] << <VCC>
 dp << <GND>
-sample << Mux10.DB_MAX_OUTPUT_PORT_TYPE
+samples[0] << Mux9.DB_MAX_OUTPUT_PORT_TYPE
+samples[1] << Mux8.DB_MAX_OUTPUT_PORT_TYPE
+samples[2] << Mux7.DB_MAX_OUTPUT_PORT_TYPE
+samples[3] << Mux6.DB_MAX_OUTPUT_PORT_TYPE
+samples[4] << Mux5.DB_MAX_OUTPUT_PORT_TYPE
+samples[5] << Mux4.DB_MAX_OUTPUT_PORT_TYPE
+samples[6] << Mux3.DB_MAX_OUTPUT_PORT_TYPE
+samples[7] << Mux2.DB_MAX_OUTPUT_PORT_TYPE
+samples[8] << Mux1.DB_MAX_OUTPUT_PORT_TYPE
+samples[9] << Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top_level|ROM:U_MEMORY

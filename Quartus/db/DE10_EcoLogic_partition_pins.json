@@ -72,7 +72,43 @@
 					"strict" : false
 				},
 				{
-					"name" : "sample",
+					"name" : "samples[0]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[1]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[2]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[3]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[4]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[5]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[6]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[7]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[8]",
+					"strict" : false
+				},
+				{
+					"name" : "samples[9]",
 					"strict" : false
 				},
 				{

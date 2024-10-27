@@ -14,7 +14,7 @@ entity top_level is
 		  seg4 : out std_logic_vector(6 downto 0);
 		  seg5 : out std_logic_vector(6 downto 0);
 		  dp : out std_logic;
-		  sample : out std_logic
+		  samples : out std_logic_vector(9 downto 0)
     );
 end top_level;
 
@@ -180,7 +180,6 @@ begin
 		);
 		
 	process (max_index) begin
-		sample <= '0';
 		case max_index is
 			when "0000" =>
 				argmax_out <= "0000000001";
@@ -194,7 +193,6 @@ begin
 				argmax_out <= "0000010000";
 			when "0101" =>
 				argmax_out <= "0000100000";
-				sample <= '1';
 			when "0110" =>
 				argmax_out <= "0001000000";
 			when "0111" =>
@@ -209,6 +207,7 @@ begin
 	end process;
 	
 	outputs <= argmax_out;
+	samples <= argmax_out;
 	
 	
 	-- Hard code the 7 segment display to say "Class"

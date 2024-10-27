@@ -1,4 +1,4 @@
-Fitter Status : Successful - Sun Oct 27 15:34:50 2024
+Fitter Status : Successful - Sun Oct 27 15:55:46 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : DE10_EcoLogic
 Top-level Entity Name : top_level
@@ -9,7 +9,7 @@ Total logic elements : 7,396 / 49,760 ( 15 % )
     Total combinational functions : 7,396 / 49,760 ( 15 % )
     Dedicated logic registers : 0 / 49,760 ( 0 % )
 Total registers : 0
-Total pins : 65 / 360 ( 18 % )
+Total pins : 74 / 360 ( 21 % )
 Total virtual pins : 0
 Total memory bits : 262,144 / 1,677,312 ( 16 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )

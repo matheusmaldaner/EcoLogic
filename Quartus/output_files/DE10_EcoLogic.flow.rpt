@@ -1,5 +1,5 @@
 Flow report for DE10_EcoLogic
-Sun Oct 27 15:35:00 2024
+Sun Oct 27 15:55:57 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Sun Oct 27 15:35:00 2024          ;
+; Flow Status                        ; Successful - Sun Oct 27 15:55:57 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; DE10_EcoLogic                                  ;
 ; Top-level Entity Name              ; top_level                                      ;
@@ -52,7 +52,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Total combinational functions  ; 7,396 / 49,760 ( 15 % )                        ;
 ;     Dedicated logic registers      ; 0 / 49,760 ( 0 % )                             ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 65 / 360 ( 18 % )                              ;
+; Total pins                         ; 74 / 360 ( 21 % )                              ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 262,144 / 1,677,312 ( 16 % )                   ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/27/2024 15:34:20 ;
+; Start date & time ; 10/27/2024 15:55:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_EcoLogic       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 110474890657492.173005766017880        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 110474890657492.173005891617236        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -108,12 +108,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4976 MB             ; 00:00:14                           ;
-; Fitter               ; 00:00:15     ; 1.7                     ; 5690 MB             ; 00:00:21                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4735 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:04     ; 2.5                     ; 4877 MB             ; 00:00:07                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4689 MB             ; 00:00:01                           ;
-; Total                ; 00:00:36     ; --                      ; --                  ; 00:00:45                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4974 MB             ; 00:00:12                           ;
+; Fitter               ; 00:00:15     ; 1.7                     ; 5691 MB             ; 00:00:18                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4731 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:04     ; 2.5                     ; 4881 MB             ; 00:00:05                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4685 MB             ; 00:00:01                           ;
+; Total                ; 00:00:36     ; --                      ; --                  ; 00:00:37                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
