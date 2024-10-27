@@ -1,5 +1,5 @@
 Flow report for DE10_EcoLogic
-Sat Oct 26 17:58:14 2024
+Sat Oct 26 23:19:59 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Successful - Sat Oct 26 17:58:14 2024          ;
+; Flow Status                        ; Successful - Sat Oct 26 23:19:59 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; DE10_EcoLogic                                  ;
 ; Top-level Entity Name              ; top_level                                      ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C6GES                               ;
 ; Timing Models                      ; Preliminary                                    ;
-; Total logic elements               ; 436 / 49,760 ( < 1 % )                         ;
-;     Total combinational functions  ; 419 / 49,760 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 135 / 49,760 ( < 1 % )                         ;
-; Total registers                    ; 135                                            ;
+; Total logic elements               ; 7,452 / 49,760 ( 15 % )                        ;
+;     Total combinational functions  ; 7,452 / 49,760 ( 15 % )                        ;
+;     Dedicated logic registers      ; 0 / 49,760 ( 0 % )                             ;
+; Total registers                    ; 0                                              ;
 ; Total pins                         ; 21 / 360 ( 6 % )                               ;
 ; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 226,304 / 1,677,312 ( 13 % )                   ;
+; Total memory bits                  ; 262,144 / 1,677,312 ( 16 % )                   ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                                ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                                  ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                                  ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2024 17:57:48 ;
+; Start date & time ; 10/26/2024 23:19:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_EcoLogic       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 110474890657492.172997986816552        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 110474890657492.172999915928024        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -109,12 +109,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4877 MB             ; 00:00:11                           ;
-; Fitter               ; 00:00:07     ; 1.2                     ; 5634 MB             ; 00:00:06                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4718 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.4                     ; 4822 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4665 MB             ; 00:00:00                           ;
-; Total                ; 00:00:21     ; --                      ; --                  ; 00:00:20                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4990 MB             ; 00:00:14                           ;
+; Fitter               ; 00:00:15     ; 1.8                     ; 5688 MB             ; 00:00:18                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4739 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:04     ; 2.6                     ; 4879 MB             ; 00:00:06                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4689 MB             ; 00:00:01                           ;
+; Total                ; 00:00:36     ; --                      ; --                  ; 00:00:41                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

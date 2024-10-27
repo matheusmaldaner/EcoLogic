@@ -20,6 +20,19 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity ArgMax
 -- Compiling architecture Behavioral of ArgMax
 
+} {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_textio
+-- Compiling entity argmax_tb
+-- Compiling architecture tb of argmax_tb
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Loading entity ArgMax
+
 } {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v {1 {vlog -work work -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module logic_network

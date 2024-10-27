@@ -9,8 +9,8 @@ entity argmax_tb is
 end argmax_tb;
 
 architecture tb of argmax_tb is
-	 
-	 signal input_data : std_logic_vector(2559 downto 0);
+	 constant WIDTH : integer := 2560;
+	 signal input_data : std_logic_vector(WIDTH - 1 downto 0);
 	 signal classification : std_logic_vector(9 downto 0);
 	 signal clk : std_logic;
 
@@ -18,11 +18,13 @@ begin  -- TB
 
 
     U_ARGMAX : entity work.argmax
+	 generic map (
+			WIDTH => WIDTH
+	 )
 	 port map (
-		   input_vector => input_data,
-			one_hot_output => classification,
 			clk => clk,
-			reset => '0'
+		   input_vector => input_data,
+			one_hot_output => classification
 	 );
 
     process begin

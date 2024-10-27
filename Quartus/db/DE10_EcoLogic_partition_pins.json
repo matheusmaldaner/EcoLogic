@@ -12,11 +12,27 @@
 					"strict" : false
 				},
 				{
+					"name" : "outputs[2]",
+					"strict" : false
+				},
+				{
+					"name" : "outputs[3]",
+					"strict" : false
+				},
+				{
 					"name" : "outputs[4]",
 					"strict" : false
 				},
 				{
 					"name" : "outputs[5]",
+					"strict" : false
+				},
+				{
+					"name" : "outputs[6]",
+					"strict" : false
+				},
+				{
+					"name" : "outputs[7]",
 					"strict" : false
 				},
 				{

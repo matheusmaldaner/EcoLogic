@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_EcoLogic
-Sat Oct 26 17:57:59 2024
+Sat Oct 26 23:19:33 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -16,17 +16,25 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
  10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated
- 15. Parameter Settings for User Entity Instance: ROM:U_MEMORY|altsyncram:altsyncram_component
- 16. altsyncram Parameter Settings by Entity Instance
- 17. Port Connectivity Checks: "ROM:U_MEMORY"
- 18. Port Connectivity Checks: "ArgMax:U_ARGMAX"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+ 11. General Register Statistics
+ 12. Source assignments for ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated
+ 13. Parameter Settings for User Entity Instance: ROM:U_MEMORY|altsyncram:altsyncram_component
+ 14. Parameter Settings for User Entity Instance: sum_ones:U_SUM0
+ 15. Parameter Settings for User Entity Instance: sum_ones:U_SUM1
+ 16. Parameter Settings for User Entity Instance: sum_ones:U_SUM2
+ 17. Parameter Settings for User Entity Instance: sum_ones:U_SUM3
+ 18. Parameter Settings for User Entity Instance: sum_ones:U_SUM4
+ 19. Parameter Settings for User Entity Instance: sum_ones:U_SUM5
+ 20. Parameter Settings for User Entity Instance: sum_ones:U_SUM6
+ 21. Parameter Settings for User Entity Instance: sum_ones:U_SUM7
+ 22. Parameter Settings for User Entity Instance: sum_ones:U_SUM8
+ 23. Parameter Settings for User Entity Instance: sum_ones:U_SUM9
+ 24. altsyncram Parameter Settings by Entity Instance
+ 25. Port Connectivity Checks: "logic_network:U_NETWORK"
+ 26. Port Connectivity Checks: "ROM:U_MEMORY"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
 
 
 
@@ -53,18 +61,18 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Oct 26 17:57:59 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sat Oct 26 23:19:33 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; DE10_EcoLogic                                  ;
 ; Top-level Entity Name              ; top_level                                      ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 418                                            ;
-;     Total combinational functions  ; 418                                            ;
-;     Dedicated logic registers      ; 135                                            ;
-; Total registers                    ; 135                                            ;
+; Total logic elements               ; 7,451                                          ;
+;     Total combinational functions  ; 7,451                                          ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
 ; Total pins                         ; 21                                             ;
 ; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 226,304                                        ;
+; Total memory bits                  ; 262,144                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
 ; Total PLLs                         ; 0                                              ;
 ; UFM blocks                         ; 0                                              ;
@@ -171,31 +179,34 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                  ;
-+----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                    ; Library ;
-+----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
-; logic_network_16.v               ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v             ;         ;
-; top_level.vhd                    ; yes             ; User VHDL File                         ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd                  ;         ;
-; ROM.vhd                          ; yes             ; User Wizard-Generated File             ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd                        ;         ;
-; argmax.vhd                       ; yes             ; User VHDL File                         ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd                     ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal231.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_his3.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf         ;         ;
-; image_input.mif                  ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/image_input.mif                ;         ;
-+----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path           ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                     ; Library ;
++--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
+; ../verilog/16x16/model_003_logic_network.v ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_003_logic_network.v ;         ;
+; max_finder.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v                    ;         ;
+; sum_ones.v                                 ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/sum_ones.v                      ;         ;
+; top_level.vhd                              ; yes             ; User VHDL File                         ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd                   ;         ;
+; ROM.vhd                                    ; yes             ; User Wizard-Generated File             ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd                         ;         ;
+; altsyncram.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
+; stratix_ram_block.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
+; lpm_mux.inc                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
+; lpm_decode.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
+; aglobal231.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc         ;         ;
+; a_rdenreg.inc                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
+; altrom.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc             ;         ;
+; altram.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc             ;         ;
+; altdpram.inc                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc           ;         ;
+; db/altsyncram_his3.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf          ;         ;
+; image_input.mif                            ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/image_input.mif                 ;         ;
++--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -203,31 +214,31 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 418       ;
+; Estimated Total logic elements              ; 7,451     ;
 ;                                             ;           ;
-; Total combinational functions               ; 418       ;
+; Total combinational functions               ; 7451      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 167       ;
-;     -- 3 input functions                    ; 149       ;
-;     -- <=2 input functions                  ; 102       ;
+;     -- 4 input functions                    ; 2621      ;
+;     -- 3 input functions                    ; 3198      ;
+;     -- <=2 input functions                  ; 1632      ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 202       ;
-;     -- arithmetic mode                      ; 216       ;
+;     -- normal mode                          ; 4667      ;
+;     -- arithmetic mode                      ; 2784      ;
 ;                                             ;           ;
-; Total registers                             ; 135       ;
-;     -- Dedicated logic registers            ; 135       ;
+; Total registers                             ; 0         ;
+;     -- Dedicated logic registers            ; 0         ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 21        ;
-; Total memory bits                           ; 226304    ;
+; Total memory bits                           ; 262144    ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 356       ;
-; Total fan-out                               ; 4165      ;
-; Average fan-out                             ; 5.10      ;
+; Maximum fan-out                             ; 256       ;
+; Total fan-out                               ; 25009     ;
+; Average fan-out                             ; 3.23      ;
 +---------------------------------------------+-----------+
 
 
@@ -236,12 +247,22 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                    ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
-; |top_level                                ; 418 (0)             ; 135 (0)                   ; 226304      ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |top_level                                                                             ; top_level       ; work         ;
-;    |ArgMax:U_ARGMAX|                      ; 382 (382)           ; 135 (135)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ArgMax:U_ARGMAX                                                             ; ArgMax          ; work         ;
-;    |ROM:U_MEMORY|                         ; 0 (0)               ; 0 (0)                     ; 226304      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY                                                                ; ROM             ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 226304      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
-;          |altsyncram_his3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 226304      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated ; altsyncram_his3 ; work         ;
-;    |logic_network:U_NETWORK|              ; 36 (36)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|logic_network:U_NETWORK                                                     ; logic_network   ; work         ;
+; |top_level                                ; 7451 (18)           ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |top_level                                                                             ; top_level       ; work         ;
+;    |ROM:U_MEMORY|                         ; 0 (0)               ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY                                                                ; ROM             ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
+;          |altsyncram_his3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated ; altsyncram_his3 ; work         ;
+;    |logic_network:U_NETWORK|              ; 1681 (1681)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|logic_network:U_NETWORK                                                     ; logic_network   ; work         ;
+;    |max_finder:U_MAXINDEX|                ; 153 (153)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|max_finder:U_MAXINDEX                                                       ; max_finder      ; work         ;
+;    |sum_ones:U_SUM0|                      ; 575 (575)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM0                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM1|                      ; 553 (553)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM1                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM2|                      ; 575 (575)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM2                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM3|                      ; 534 (534)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM3                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM4|                      ; 534 (534)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM4                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM5|                      ; 533 (533)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM5                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM6|                      ; 579 (579)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM6                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM7|                      ; 575 (575)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM7                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM8|                      ; 577 (577)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM8                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM9|                      ; 564 (564)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM9                                                             ; sum_ones        ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -264,252 +285,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-------------------------+-----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                       ;
-+------------------------------------------------------------------------------------------+-----------------------------------------------+
-; Register name                                                                            ; Reason for Removal                            ;
-+------------------------------------------------------------------------------------------+-----------------------------------------------+
-; ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|rden_a_store ; Lost fanout                                   ;
-; ArgMax:U_ARGMAX|count_ones[2][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][31] ;
-; ArgMax:U_ARGMAX|count_ones[3][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][31] ;
-; ArgMax:U_ARGMAX|count_ones[5][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][31] ;
-; ArgMax:U_ARGMAX|count_ones[6][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][31] ;
-; ArgMax:U_ARGMAX|count_ones[7][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][31] ;
-; ArgMax:U_ARGMAX|count_ones[8][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][31] ;
-; ArgMax:U_ARGMAX|count_ones[2][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][30] ;
-; ArgMax:U_ARGMAX|count_ones[3][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][30] ;
-; ArgMax:U_ARGMAX|count_ones[5][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][30] ;
-; ArgMax:U_ARGMAX|count_ones[6][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][30] ;
-; ArgMax:U_ARGMAX|count_ones[7][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][30] ;
-; ArgMax:U_ARGMAX|count_ones[8][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][30] ;
-; ArgMax:U_ARGMAX|count_ones[2][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][29] ;
-; ArgMax:U_ARGMAX|count_ones[3][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][29] ;
-; ArgMax:U_ARGMAX|count_ones[5][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][29] ;
-; ArgMax:U_ARGMAX|count_ones[6][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][29] ;
-; ArgMax:U_ARGMAX|count_ones[7][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][29] ;
-; ArgMax:U_ARGMAX|count_ones[8][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][29] ;
-; ArgMax:U_ARGMAX|count_ones[2][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][28] ;
-; ArgMax:U_ARGMAX|count_ones[3][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][28] ;
-; ArgMax:U_ARGMAX|count_ones[5][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][28] ;
-; ArgMax:U_ARGMAX|count_ones[6][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][28] ;
-; ArgMax:U_ARGMAX|count_ones[7][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][28] ;
-; ArgMax:U_ARGMAX|count_ones[8][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][28] ;
-; ArgMax:U_ARGMAX|count_ones[2][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][27] ;
-; ArgMax:U_ARGMAX|count_ones[3][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][27] ;
-; ArgMax:U_ARGMAX|count_ones[5][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][27] ;
-; ArgMax:U_ARGMAX|count_ones[6][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][27] ;
-; ArgMax:U_ARGMAX|count_ones[7][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][27] ;
-; ArgMax:U_ARGMAX|count_ones[8][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][27] ;
-; ArgMax:U_ARGMAX|count_ones[2][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][26] ;
-; ArgMax:U_ARGMAX|count_ones[3][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][26] ;
-; ArgMax:U_ARGMAX|count_ones[5][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][26] ;
-; ArgMax:U_ARGMAX|count_ones[6][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][26] ;
-; ArgMax:U_ARGMAX|count_ones[7][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][26] ;
-; ArgMax:U_ARGMAX|count_ones[8][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][26] ;
-; ArgMax:U_ARGMAX|count_ones[2][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][25] ;
-; ArgMax:U_ARGMAX|count_ones[3][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][25] ;
-; ArgMax:U_ARGMAX|count_ones[5][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][25] ;
-; ArgMax:U_ARGMAX|count_ones[6][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][25] ;
-; ArgMax:U_ARGMAX|count_ones[7][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][25] ;
-; ArgMax:U_ARGMAX|count_ones[8][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][25] ;
-; ArgMax:U_ARGMAX|count_ones[2][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][24] ;
-; ArgMax:U_ARGMAX|count_ones[3][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][24] ;
-; ArgMax:U_ARGMAX|count_ones[5][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][24] ;
-; ArgMax:U_ARGMAX|count_ones[6][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][24] ;
-; ArgMax:U_ARGMAX|count_ones[7][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][24] ;
-; ArgMax:U_ARGMAX|count_ones[8][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][24] ;
-; ArgMax:U_ARGMAX|count_ones[2][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][23] ;
-; ArgMax:U_ARGMAX|count_ones[3][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][23] ;
-; ArgMax:U_ARGMAX|count_ones[5][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][23] ;
-; ArgMax:U_ARGMAX|count_ones[6][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][23] ;
-; ArgMax:U_ARGMAX|count_ones[7][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][23] ;
-; ArgMax:U_ARGMAX|count_ones[8][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][23] ;
-; ArgMax:U_ARGMAX|count_ones[2][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][22] ;
-; ArgMax:U_ARGMAX|count_ones[3][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][22] ;
-; ArgMax:U_ARGMAX|count_ones[5][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][22] ;
-; ArgMax:U_ARGMAX|count_ones[6][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][22] ;
-; ArgMax:U_ARGMAX|count_ones[7][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][22] ;
-; ArgMax:U_ARGMAX|count_ones[8][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][22] ;
-; ArgMax:U_ARGMAX|count_ones[2][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][21] ;
-; ArgMax:U_ARGMAX|count_ones[3][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][21] ;
-; ArgMax:U_ARGMAX|count_ones[5][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][21] ;
-; ArgMax:U_ARGMAX|count_ones[6][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][21] ;
-; ArgMax:U_ARGMAX|count_ones[7][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][21] ;
-; ArgMax:U_ARGMAX|count_ones[8][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][21] ;
-; ArgMax:U_ARGMAX|count_ones[2][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][20] ;
-; ArgMax:U_ARGMAX|count_ones[3][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][20] ;
-; ArgMax:U_ARGMAX|count_ones[5][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][20] ;
-; ArgMax:U_ARGMAX|count_ones[6][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][20] ;
-; ArgMax:U_ARGMAX|count_ones[7][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][20] ;
-; ArgMax:U_ARGMAX|count_ones[8][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][20] ;
-; ArgMax:U_ARGMAX|count_ones[2][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][19] ;
-; ArgMax:U_ARGMAX|count_ones[3][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][19] ;
-; ArgMax:U_ARGMAX|count_ones[5][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][19] ;
-; ArgMax:U_ARGMAX|count_ones[6][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][19] ;
-; ArgMax:U_ARGMAX|count_ones[7][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][19] ;
-; ArgMax:U_ARGMAX|count_ones[8][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][19] ;
-; ArgMax:U_ARGMAX|count_ones[2][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][18] ;
-; ArgMax:U_ARGMAX|count_ones[3][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][18] ;
-; ArgMax:U_ARGMAX|count_ones[5][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][18] ;
-; ArgMax:U_ARGMAX|count_ones[6][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][18] ;
-; ArgMax:U_ARGMAX|count_ones[7][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][18] ;
-; ArgMax:U_ARGMAX|count_ones[8][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][18] ;
-; ArgMax:U_ARGMAX|count_ones[2][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][17] ;
-; ArgMax:U_ARGMAX|count_ones[3][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][17] ;
-; ArgMax:U_ARGMAX|count_ones[5][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][17] ;
-; ArgMax:U_ARGMAX|count_ones[6][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][17] ;
-; ArgMax:U_ARGMAX|count_ones[7][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][17] ;
-; ArgMax:U_ARGMAX|count_ones[8][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][17] ;
-; ArgMax:U_ARGMAX|count_ones[2][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][16] ;
-; ArgMax:U_ARGMAX|count_ones[3][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][16] ;
-; ArgMax:U_ARGMAX|count_ones[5][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][16] ;
-; ArgMax:U_ARGMAX|count_ones[6][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][16] ;
-; ArgMax:U_ARGMAX|count_ones[7][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][16] ;
-; ArgMax:U_ARGMAX|count_ones[8][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][16] ;
-; ArgMax:U_ARGMAX|count_ones[2][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][15] ;
-; ArgMax:U_ARGMAX|count_ones[3][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][15] ;
-; ArgMax:U_ARGMAX|count_ones[5][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][15] ;
-; ArgMax:U_ARGMAX|count_ones[6][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][15] ;
-; ArgMax:U_ARGMAX|count_ones[7][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][15] ;
-; ArgMax:U_ARGMAX|count_ones[8][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][15] ;
-; ArgMax:U_ARGMAX|count_ones[2][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][14] ;
-; ArgMax:U_ARGMAX|count_ones[3][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][14] ;
-; ArgMax:U_ARGMAX|count_ones[5][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][14] ;
-; ArgMax:U_ARGMAX|count_ones[6][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][14] ;
-; ArgMax:U_ARGMAX|count_ones[7][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][14] ;
-; ArgMax:U_ARGMAX|count_ones[8][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][14] ;
-; ArgMax:U_ARGMAX|count_ones[2][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][13] ;
-; ArgMax:U_ARGMAX|count_ones[3][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][13] ;
-; ArgMax:U_ARGMAX|count_ones[5][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][13] ;
-; ArgMax:U_ARGMAX|count_ones[6][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][13] ;
-; ArgMax:U_ARGMAX|count_ones[7][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][13] ;
-; ArgMax:U_ARGMAX|count_ones[8][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][13] ;
-; ArgMax:U_ARGMAX|count_ones[2][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][12] ;
-; ArgMax:U_ARGMAX|count_ones[3][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][12] ;
-; ArgMax:U_ARGMAX|count_ones[5][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][12] ;
-; ArgMax:U_ARGMAX|count_ones[6][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][12] ;
-; ArgMax:U_ARGMAX|count_ones[7][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][12] ;
-; ArgMax:U_ARGMAX|count_ones[8][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][12] ;
-; ArgMax:U_ARGMAX|count_ones[2][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][11] ;
-; ArgMax:U_ARGMAX|count_ones[3][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][11] ;
-; ArgMax:U_ARGMAX|count_ones[5][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][11] ;
-; ArgMax:U_ARGMAX|count_ones[6][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][11] ;
-; ArgMax:U_ARGMAX|count_ones[7][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][11] ;
-; ArgMax:U_ARGMAX|count_ones[8][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][11] ;
-; ArgMax:U_ARGMAX|count_ones[2][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][10] ;
-; ArgMax:U_ARGMAX|count_ones[3][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][10] ;
-; ArgMax:U_ARGMAX|count_ones[5][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][10] ;
-; ArgMax:U_ARGMAX|count_ones[6][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][10] ;
-; ArgMax:U_ARGMAX|count_ones[7][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][10] ;
-; ArgMax:U_ARGMAX|count_ones[8][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[0][10] ;
-; ArgMax:U_ARGMAX|count_ones[2][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][9]  ;
-; ArgMax:U_ARGMAX|count_ones[3][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][9]  ;
-; ArgMax:U_ARGMAX|count_ones[5][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][9]  ;
-; ArgMax:U_ARGMAX|count_ones[6][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][9]  ;
-; ArgMax:U_ARGMAX|count_ones[7][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][9]  ;
-; ArgMax:U_ARGMAX|count_ones[8][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][9]  ;
-; ArgMax:U_ARGMAX|count_ones[2][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][8]  ;
-; ArgMax:U_ARGMAX|count_ones[3][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][8]  ;
-; ArgMax:U_ARGMAX|count_ones[5][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][8]  ;
-; ArgMax:U_ARGMAX|count_ones[6][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][8]  ;
-; ArgMax:U_ARGMAX|count_ones[7][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][8]  ;
-; ArgMax:U_ARGMAX|count_ones[8][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][8]  ;
-; ArgMax:U_ARGMAX|count_ones[2][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][7]  ;
-; ArgMax:U_ARGMAX|count_ones[3][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][7]  ;
-; ArgMax:U_ARGMAX|count_ones[5][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][7]  ;
-; ArgMax:U_ARGMAX|count_ones[6][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][7]  ;
-; ArgMax:U_ARGMAX|count_ones[7][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][7]  ;
-; ArgMax:U_ARGMAX|count_ones[8][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][7]  ;
-; ArgMax:U_ARGMAX|count_ones[2][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][6]  ;
-; ArgMax:U_ARGMAX|count_ones[3][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][6]  ;
-; ArgMax:U_ARGMAX|count_ones[5][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][6]  ;
-; ArgMax:U_ARGMAX|count_ones[6][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][6]  ;
-; ArgMax:U_ARGMAX|count_ones[7][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][6]  ;
-; ArgMax:U_ARGMAX|count_ones[8][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][6]  ;
-; ArgMax:U_ARGMAX|count_ones[2][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][5]  ;
-; ArgMax:U_ARGMAX|count_ones[3][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][5]  ;
-; ArgMax:U_ARGMAX|count_ones[5][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][5]  ;
-; ArgMax:U_ARGMAX|count_ones[6][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][5]  ;
-; ArgMax:U_ARGMAX|count_ones[7][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][5]  ;
-; ArgMax:U_ARGMAX|count_ones[8][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][5]  ;
-; ArgMax:U_ARGMAX|count_ones[2][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][4]  ;
-; ArgMax:U_ARGMAX|count_ones[3][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][4]  ;
-; ArgMax:U_ARGMAX|count_ones[5][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][4]  ;
-; ArgMax:U_ARGMAX|count_ones[6][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][4]  ;
-; ArgMax:U_ARGMAX|count_ones[7][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][4]  ;
-; ArgMax:U_ARGMAX|count_ones[8][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][4]  ;
-; ArgMax:U_ARGMAX|count_ones[2][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][3]  ;
-; ArgMax:U_ARGMAX|count_ones[3][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][3]  ;
-; ArgMax:U_ARGMAX|count_ones[5][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][3]  ;
-; ArgMax:U_ARGMAX|count_ones[6][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][3]  ;
-; ArgMax:U_ARGMAX|count_ones[7][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][3]  ;
-; ArgMax:U_ARGMAX|count_ones[8][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][3]  ;
-; ArgMax:U_ARGMAX|count_ones[2][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][2]  ;
-; ArgMax:U_ARGMAX|count_ones[3][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][2]  ;
-; ArgMax:U_ARGMAX|count_ones[5][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][2]  ;
-; ArgMax:U_ARGMAX|count_ones[6][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][2]  ;
-; ArgMax:U_ARGMAX|count_ones[7][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][2]  ;
-; ArgMax:U_ARGMAX|count_ones[8][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][2]  ;
-; ArgMax:U_ARGMAX|count_ones[2][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][1]  ;
-; ArgMax:U_ARGMAX|count_ones[3][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][1]  ;
-; ArgMax:U_ARGMAX|count_ones[5][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][1]  ;
-; ArgMax:U_ARGMAX|count_ones[6][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][1]  ;
-; ArgMax:U_ARGMAX|count_ones[7][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][1]  ;
-; ArgMax:U_ARGMAX|count_ones[8][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][1]  ;
-; ArgMax:U_ARGMAX|count_ones[2][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][0]  ;
-; ArgMax:U_ARGMAX|count_ones[3][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][0]  ;
-; ArgMax:U_ARGMAX|count_ones[5][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][0]  ;
-; ArgMax:U_ARGMAX|count_ones[6][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][0]  ;
-; ArgMax:U_ARGMAX|count_ones[7][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][0]  ;
-; ArgMax:U_ARGMAX|count_ones[8][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[0][0]  ;
-; ArgMax:U_ARGMAX|max_index[1]                                                             ; Stuck at GND due to stuck port data_in        ;
-; ArgMax:U_ARGMAX|one_hot_output[2,3,6,7]                                                  ; Stuck at GND due to stuck port data_in        ;
-; ArgMax:U_ARGMAX|count_ones[9][31]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][31] ;
-; ArgMax:U_ARGMAX|count_ones[9][30]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][30] ;
-; ArgMax:U_ARGMAX|count_ones[9][29]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][29] ;
-; ArgMax:U_ARGMAX|count_ones[9][28]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][28] ;
-; ArgMax:U_ARGMAX|count_ones[9][27]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][27] ;
-; ArgMax:U_ARGMAX|count_ones[9][26]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][26] ;
-; ArgMax:U_ARGMAX|count_ones[9][25]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][25] ;
-; ArgMax:U_ARGMAX|count_ones[9][24]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][24] ;
-; ArgMax:U_ARGMAX|count_ones[9][23]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][23] ;
-; ArgMax:U_ARGMAX|count_ones[9][22]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][22] ;
-; ArgMax:U_ARGMAX|count_ones[9][21]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][21] ;
-; ArgMax:U_ARGMAX|count_ones[9][20]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][20] ;
-; ArgMax:U_ARGMAX|count_ones[9][19]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][19] ;
-; ArgMax:U_ARGMAX|count_ones[9][18]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][18] ;
-; ArgMax:U_ARGMAX|count_ones[9][17]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][17] ;
-; ArgMax:U_ARGMAX|count_ones[9][16]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][16] ;
-; ArgMax:U_ARGMAX|count_ones[9][15]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][15] ;
-; ArgMax:U_ARGMAX|count_ones[9][14]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][14] ;
-; ArgMax:U_ARGMAX|count_ones[9][13]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][13] ;
-; ArgMax:U_ARGMAX|count_ones[9][12]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][12] ;
-; ArgMax:U_ARGMAX|count_ones[9][11]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][11] ;
-; ArgMax:U_ARGMAX|count_ones[9][10]                                                        ; Merged with ArgMax:U_ARGMAX|count_ones[4][10] ;
-; ArgMax:U_ARGMAX|count_ones[9][9]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][9]  ;
-; ArgMax:U_ARGMAX|count_ones[9][8]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][8]  ;
-; ArgMax:U_ARGMAX|count_ones[9][7]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][7]  ;
-; ArgMax:U_ARGMAX|count_ones[9][6]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][6]  ;
-; ArgMax:U_ARGMAX|count_ones[9][5]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][5]  ;
-; ArgMax:U_ARGMAX|count_ones[9][4]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][4]  ;
-; ArgMax:U_ARGMAX|count_ones[9][3]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][3]  ;
-; ArgMax:U_ARGMAX|count_ones[9][2]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][2]  ;
-; ArgMax:U_ARGMAX|count_ones[9][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][1]  ;
-; ArgMax:U_ARGMAX|count_ones[9][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][0]  ;
-; ArgMax:U_ARGMAX|count_ones[0][0]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][0]  ;
-; ArgMax:U_ARGMAX|count_ones[0][1]                                                         ; Merged with ArgMax:U_ARGMAX|count_ones[4][1]  ;
-; Total Number of Removed Registers = 232                                                  ;                                               ;
-+------------------------------------------------------------------------------------------+-----------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                      ;
-+------------------------------+---------------------------+-----------------------------------------------------------------------+
-; Register name                ; Reason for Removal        ; Registers Removed due to This Register                                ;
-+------------------------------+---------------------------+-----------------------------------------------------------------------+
-; ArgMax:U_ARGMAX|max_index[1] ; Stuck at GND              ; ArgMax:U_ARGMAX|one_hot_output[2], ArgMax:U_ARGMAX|one_hot_output[3], ;
-;                              ; due to stuck port data_in ; ArgMax:U_ARGMAX|one_hot_output[6], ArgMax:U_ARGMAX|one_hot_output[7]  ;
-+------------------------------+---------------------------+-----------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                            ;
++------------------------------------------------------------------------------------------+--------------------+
+; Register name                                                                            ; Reason for Removal ;
++------------------------------------------------------------------------------------------+--------------------+
+; ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|rden_a_store ; Lost fanout        ;
+; Total Number of Removed Registers = 1                                                    ;                    ;
++------------------------------------------------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -517,23 +300,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 135   ;
-; Number of registers using Synchronous Clear  ; 62    ;
-; Number of registers using Synchronous Load   ; 30    ;
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 7:1                ; 32 bits   ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |top_level|ArgMax:U_ARGMAX|max_count[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------+
@@ -606,6 +380,106 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM0 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM1 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM2 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM3 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM4 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM5 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM6 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM7 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM8 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sum_ones:U_SUM9 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 256   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                         ;
 +-------------------------------------------+----------------------------------------------+
@@ -626,6 +500,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+----------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "logic_network:U_NETWORK"                                                                                                ;
++---------+--------+------------------+--------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity         ; Details                                                                                                      ;
++---------+--------+------------------+--------------------------------------------------------------------------------------------------------------+
+; outputs ; Output ; Critical Warning ; Can't connect array with 2560 elements in array dimension 1 to port with 7680 elements in the same dimension ;
++---------+--------+------------------+--------------------------------------------------------------------------------------------------------------+
+
+
 +------------------------------------------+
 ; Port Connectivity Checks: "ROM:U_MEMORY" ;
 +------+-------+----------+----------------+
@@ -635,39 +518,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+----------------+
 
 
-+---------------------------------------------+
-; Port Connectivity Checks: "ArgMax:U_ARGMAX" ;
-+-------+-------+----------+------------------+
-; Port  ; Type  ; Severity ; Details          ;
-+-------+-------+----------+------------------+
-; reset ; Input ; Info     ; Stuck at GND     ;
-+-------+-------+----------+------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 21                          ;
-; cycloneiii_ff         ; 135                         ;
-;     SCLR              ; 32                          ;
-;     SCLR SLD          ; 30                          ;
-;     plain             ; 73                          ;
-; cycloneiii_lcell_comb ; 419                         ;
-;     arith             ; 216                         ;
-;         2 data inputs ; 91                          ;
-;         3 data inputs ; 125                         ;
-;     normal            ; 203                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 24                          ;
-;         4 data inputs ; 167                         ;
-; cycloneiii_ram_block  ; 221                         ;
+; cycloneiii_lcell_comb ; 7451                        ;
+;     arith             ; 2784                        ;
+;         2 data inputs ; 373                         ;
+;         3 data inputs ; 2411                        ;
+;     normal            ; 4667                        ;
+;         0 data inputs ; 534                         ;
+;         1 data inputs ; 112                         ;
+;         2 data inputs ; 613                         ;
+;         3 data inputs ; 787                         ;
+;         4 data inputs ; 2621                        ;
+; cycloneiii_ram_block  ; 256                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.10                        ;
-; Average LUT depth     ; 4.49                        ;
+; Max LUT depth         ; 43.10                       ;
+; Average LUT depth     ; 29.01                       ;
 +-----------------------+-----------------------------+
 
 
@@ -676,7 +546,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:07     ;
 +----------------+--------------+
 
 
@@ -686,12 +556,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Oct 26 17:57:48 2024
+    Info: Processing started: Sat Oct 26 23:19:19 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_EcoLogic -c DE10_EcoLogic
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file logic_network_16.v
-    Info (12023): Found entity 1: logic_network File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/logic_network_16.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/lando/documents/github/ecologic/verilog/16x16/model_003_logic_network.v
+    Info (12023): Found entity 1: logic_network File: C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_003_logic_network.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file max_finder.v
+    Info (12023): Found entity 1: max_finder File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sum_ones.v
+    Info (12023): Found entity 1: sum_ones File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/sum_ones.v Line: 1
 Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
     Info (12022): Found design unit 1: top_level-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
     Info (12023): Found entity 1: top_level File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 4
@@ -699,7 +573,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
     Info (12022): Found design unit 1: rom-SYN File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 54
     Info (12023): Found entity 1: ROM File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 43
 Info (12021): Found 2 design units, including 1 entities, in source file argmax.vhd
-    Info (12022): Found design unit 1: ArgMax-Behavioral File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd Line: 15
+    Info (12022): Found design unit 1: ArgMax-Behavioral File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd Line: 17
     Info (12023): Found entity 1: ArgMax File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file dummy_network.v
     Info (12023): Found entity 1: dummy_network File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/dummy_network.v Line: 1
@@ -709,15 +583,17 @@ Info (12021): Found 2 design units, including 1 entities, in source file top_lev
 Info (12021): Found 2 design units, including 1 entities, in source file argmax_tb.vhd
     Info (12022): Found design unit 1: argmax_tb-tb File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd Line: 11
     Info (12023): Found entity 1: argmax_tb File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file countones.vhd
-    Info (12022): Found design unit 1: CountOnes-Behavioral File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/CountOnes.vhd Line: 15
-    Info (12023): Found entity 1: CountOnes File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/CountOnes.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
     Info (12022): Found design unit 1: ram-SYN File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/RAM.vhd Line: 55
     Info (12023): Found entity 1: RAM File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/RAM.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file count_ones_datapath.vhd
+    Info (12022): Found design unit 1: count_ones_datapath-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones_datapath.vhd Line: 13
+    Info (12023): Found entity 1: count_ones_datapath File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones_datapath.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file count_ones.vhd
+    Info (12022): Found design unit 1: count_ones-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones.vhd Line: 16
+    Info (12023): Found entity 1: count_ones File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones.vhd Line: 5
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Info (12128): Elaborating entity "ArgMax" for hierarchy "ArgMax:U_ARGMAX" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 27
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:U_MEMORY" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 35
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:U_MEMORY" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 48
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:U_MEMORY|altsyncram:altsyncram_component" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 61
 Info (12130): Elaborated megafunction instantiation "ROM:U_MEMORY|altsyncram:altsyncram_component" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 61
 Info (12133): Instantiated megafunction "ROM:U_MEMORY|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 61
@@ -774,66 +650,24 @@ Info (12133): Instantiated megafunction "ROM:U_MEMORY|altsyncram:altsyncram_comp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_his3.tdf
     Info (12023): Found entity 1: altsyncram_his3 File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_his3" for hierarchy "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "logic_network" for hierarchy "logic_network:U_NETWORK" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 43
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[221]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4899
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[82]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1841
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[41]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 939
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[58]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1313
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[144]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3205
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[170]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3777
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[181]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4019
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[184]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4085
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[187]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4151
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[199]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4415
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[232]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 5141
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[234]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 5185
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[216]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4789
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[71]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1599
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[193]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4283
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[60]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1357
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[156]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3469
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[206]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4569
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[145]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3227
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[179]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3975
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[23]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 543
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[22]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 521
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[65]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1467
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[190]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4217
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[61]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1379
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[222]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4921
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[0]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 37
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[148]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3293
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[4]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 125
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[57]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1291
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[212]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 4701
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[146]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 3249
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[33]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 763
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[80]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 1797
-        Warning (14320): Synthesized away node "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|q_a[251]" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 5559
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "outputs[2]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 8
-    Warning (13410): Pin "outputs[3]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 8
-    Warning (13410): Pin "outputs[6]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 8
-    Warning (13410): Pin "outputs[7]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 8
+Info (12128): Elaborating entity "logic_network" for hierarchy "logic_network:U_NETWORK" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 56
+Info (12128): Elaborating entity "sum_ones" for hierarchy "sum_ones:U_SUM0" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 62
+Info (12128): Elaborating entity "max_finder" for hierarchy "max_finder:U_MAXINDEX" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 152
+Warning (10230): Verilog HDL assignment warning at max_finder.v(41): truncated value with size 32 to match size of target (4) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v Line: 41
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 660 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7728 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 418 logic cells
-    Info (21064): Implemented 221 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Sat Oct 26 17:57:59 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:11
+    Info (21061): Implemented 7451 logic cells
+    Info (21064): Implemented 256 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4990 megabytes
+    Info: Processing ended: Sat Oct 26 23:19:33 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:14
 
 
