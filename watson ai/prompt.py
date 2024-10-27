@@ -1,101 +1,79 @@
+import requests
 import json
-from ibm_watson import NaturalLanguageUnderstandingV1
-from ibm_watson.natural_language_understanding_v1 import Features, KeywordsOptions
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-import subprocess
 
 # Set up the API credentials
 api_key = "fmN5CM-_viFpSQrBfTTtqcUNZm2-C0ELThKrNNtYQb4p"
-url = "https://us-south.ml.cloud.ibm.com"
+url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"  # Update based on your Watson ML instance URL
+space_id = "1925a9ba-464e-4f1f-a940-3ad952863409"
 
-# Create an authenticator
-authenticator = IAMAuthenticator(api_key)
+# Generate an access token using your API key
+def get_access_token(api_key):
+    auth_url = "https://iam.cloud.ibm.com/identity/token"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = f"apikey={api_key}&grant_type=urn:ibm:params:oauth:grant-type:apikey"
+    
+    response = requests.post(auth_url, headers=headers, data=data)
+    if response.status_code == 200:
+        return response.json()["access_token"]
+    else:
+        raise Exception(f"Failed to obtain access token: {response.text}")
 
-# Create a Natural Language Understanding service instance
-nlu = NaturalLanguageUnderstandingV1(
-    version="2022-04-07",
-    authenticator=authenticator
-)
+# Retrieve the access token
+access_token = get_access_token(api_key)
 
-# Set the service URL
-nlu.set_service_url(url)
+# Headers for API requests
+headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {access_token}"
+}
 
 # Data storage dictionary to store user-provided files and configurations
 user_data = {
     "training_data": None,
     "model": None,
     "hdl_files": None,
-    "fpga_programmed": False
+    "fpga_programmed": False,
+    "watson_model_behavior": None
 }
 
 # Step tracking variable
-current_step = 0
+intent_completed = []
 
-def analyze_input(user_input):
-    """Analyzes user input using Watson NLU to extract keywords."""
-    try:
-        response = nlu.analyze(
-            text=user_input,
-            features=Features(keywords=KeywordsOptions(limit=10))
-        ).get_result()
+def watson_intro():
+    """Watson's introduction message and explanation of available options."""
+    print("Hello! I am Watson, your AI assistant. I can help you with the following:")
+    print("1) Submit machine learning training data.")
+    print("2) Generate hardware description language files.")
+    print("3) Program your field programmable gate array (FPGA).")
+    print("4) Train a new Watson RAG model for the FPGA project.")
+    print("5) Interact with the trained Watson RAG model.")
+    print("6) Finish our interaction.")
+    print("7) Answer questions about the project.")
+    print()
 
-        # Extract keywords from the response
-        keywords = [keyword['text'].lower() for keyword in response['keywords']]
-        return keywords
+    user_input = input("Please enter the tasks you'd like to perform, separated by commas. \n For example: '1,2,3' \n")
+    intent_map = {
+        "1": "submit_machine_learning_training_data",
+        "2": "generate_hardware_description_language_files",
+        "3": "program_field_programmable_gate_array",
+        "4": "train_watson_RAG_model",
+        "5": "interact_watson_RAG_model",
+        "6": "finished_interaction",
+        "7": "answer_project_questions"
+    }
 
-    except Exception as e:
-        print(f"An error occurred during input analysis: {e}")
+    intents = user_input.split(',')
+    intents = [intent_map[intent] for intent in intents if intent in intent_map]
+    if intents:
+        print("Intents identified:", intents)
+        return intents
+    else:
+        print("Failed to get a response from the foundation model.")
         return []
-
-def interpret_intents(keywords):
-    """Interprets multiple intents based on keyword combinations."""
-    intents = []
-    
-    # Define phrases for each intent
-    submit_data_phrases = {"submit training data", "provide dataset", "upload data"}
-    generate_hdl_phrases = {"generate hdl files", "create verilog", "create vhdl", "generate code"}
-    program_fpga_phrases = {"program the fpga", "configure fpga", "upload to fpga"}
-    train_model_phrases = {"train watson model", "create model", "train agent"}
-
-    # Combine keywords to identify the full intent
-    input_text = " ".join(keywords)
-
-    # Check each intent by looking for phrase matches
-    if any(phrase in input_text for phrase in submit_data_phrases):
-        intents.append("submit_data")
-    if any(phrase in input_text for phrase in generate_hdl_phrases):
-        intents.append("generate_hdl")
-    if any(phrase in input_text for phrase in program_fpga_phrases):
-        intents.append("program_fpga")
-    if any(phrase in input_text for phrase in train_model_phrases):
-        intents.append("train_model")
-
-    return intents
-
-def clarify_intent(intents):
-    """Prompt the user for further detail if the intent is not clear."""
-    if not intents:
-        print("I couldn't determine what you want to do. Could you please clarify?")
-        return watson_intro()  # Ask for the input again
-    elif len(intents) > 1:
-        print("It seems like you want to perform multiple actions. Could you specify the sequence or provide more details?")
-        return watson_intro()  # Ask for the input again
-
-    return intents
-
-def next_step_required(expected_step):
-    """Ensure steps are followed sequentially."""
-    global current_step
-    if current_step != expected_step:
-        print(f"Please complete Step {expected_step} before proceeding.")
-        return False
-    return True
 
 def handle_training_data():
     """Guide users on how to submit training data."""
-    global current_step
-    if not next_step_required(1):
-        return
     
     print("To build a model, relevant data is necessary.")
     print("Please provide a file path to the dataset. It should be in CSV format and structured appropriately for model training (e.g., features and labels).")
@@ -106,13 +84,9 @@ def handle_training_data():
     print("Training the model with the provided dataset...")
     user_data["model"] = "model_trained"
     print("Model training completed successfully and saved locally.")
-    current_step += 1
 
 def generate_hdl_files():
     """Generate Verilog/VHDL files based on user specifications."""
-    global current_step
-    if not next_step_required(2):
-        return
 
     print("To generate HDL files, specify the parameters for your FPGA design.")
     
@@ -124,13 +98,9 @@ def generate_hdl_files():
     hdl_file_path = f"./{module_name}.v"
     user_data["hdl_files"] = hdl_file_path
     print(f"HDL files generated successfully and stored locally at: {hdl_file_path}")
-    current_step += 1
 
 def program_fpga():
     """Prompt user to program FPGA with generated files."""
-    global current_step
-    if not next_step_required(3):
-        return
     
     if user_data["hdl_files"] is None:
         print("HDL files are required to program the FPGA. Please generate them first.")
@@ -143,54 +113,117 @@ def program_fpga():
         print("FPGA programming completed successfully!")
     else:
         print("FPGA programming skipped.")
-    current_step += 1
 
 def new_watson_model():
     """Ask user for details to train a new Watson model for the FPGA project."""
-    global current_step
-    if not next_step_required(4):
-        return
     
     if not user_data["fpga_programmed"]:
         print("You need to program the FPGA before training a new Watson model for it.")
-        return
-    
+        return False
     behavior_description = input("Enter the behavior description: ")
-    print(f"Training new model based on: {behavior_description}")
-    user_data["new_model"] = "watson_model_trained"
+    user_data["watson_model_behavior"] = behavior_description
     print("New Watson model training completed successfully and saved locally.")
-    current_step += 1
+    return True
 
-def watson_intro():
-    """Watson's introduction message and explanation of available options."""
-    print("Hello! I am Watson, your AI assistant. I can help you with the following:")
-    print("1) Submit training data for a model.")
-    print("2) Generate Verilog/VHDL files for your FPGA project.")
-    print("3) Program your FPGA with generated files.")
-    print("4) Train a new Watson model for the FPGA project.")
-    print()
+def prompt_user_foundation_model(prompt_text):
+    """Prompts the Watson foundation model to generate a response."""
+    model_id = "ibm/granite-13b-chat-v2"  # Update with the correct model ID
+    project_id = "c140dad4-376a-4958-a9ad-28c2b55ed009"  # Update with your actual project ID
+    global user_data
+    # Define the payload for the foundation model
+    body = {
+        "input": f"You are an agent, the following description is how you should strictly behave: \n {user_data['watson_model_behavior']} \n This is the user's prompt, please respond appropriately: \n {prompt_text}",
+        "parameters": {
+            "decoding_method": "greedy",
+            "max_new_tokens": 900,
+            "repetition_penalty": 1
+        },
+        "model_id": model_id,
+        "project_id": project_id
+    }
 
-    user_input = input("Please describe what you would like to do, and I will assist you: ")
-    keywords = analyze_input(user_input)
-    intents = interpret_intents(keywords)
+    # Call the Watson Machine Learning deployment endpoint
+    try:
+        response = requests.post(
+            url,
+            headers=headers,
+            json=body
+        )
+        if response.status_code != 200:
+            raise Exception("Non-200 response: " + str(response.text))
 
-    return clarify_intent(intents)
+        data = response.json()
+        
+        # Debugging: Print the full response to understand its structure
+        #print("Full response:", json.dumps(data, indent=2))
+        
+        # Attempt to extract 'generated_text' or adapt to the structure
+        if 'results' in data:
+            return data['results'][0]['generated_text'].strip()
+        elif 'predictions' in data and len(data['predictions']) > 0:
+            return data['predictions'][0]['values'][0][0]
+        else:
+            print("Unexpected response structure. Full response logged above.")
+            return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
 
 def main():
     """Main interaction loop for Watson's platform."""
     while True:
         intents = watson_intro()
 
+        # If intents are empty or None, retry the prompt
+        if not intents:
+            print("I couldn't determine your request. Let's try again.")
+            continue
+
         # Execute each valid intent sequentially
         for intent in intents:
-            if intent == "submit_data":
+            if intent == "submit_machine_learning_training_data":
                 handle_training_data()
-            elif intent == "generate_hdl":
+                intent_completed.append(intent)
+            elif intent == "generate_hardware_description_language_files" and "submit_machine_learning_training_data" in intent_completed:
                 generate_hdl_files()
-            elif intent == "program_fpga":
+                intent_completed.append(intent)
+            elif intent == "program_field_programmable_gate_array" and "generate_hardware_description_language_files" in intent_completed:
                 program_fpga()
-            elif intent == "train_model":
-                new_watson_model()
+                intent_completed.append(intent)
+            elif intent == "train_watson_RAG_model" and "program_field_programmable_gate_array" in intent_completed:
+                val = new_watson_model()
+                if val:
+                    intent_completed.append(intent)
+            elif intent == "interact_watson_RAG_model" and "train_watson_RAG_model" in intent_completed:
+                user_input = input("Hello, I am your new Watson Model. To best use me, simply prompt me. When you are done, simply prompt \"Stop\" \n")
+                response = prompt_user_foundation_model(user_input)
+                while True:
+                    print(response)
+                    user_input = input()
+                    if user_input == "Stop":
+                        break
+                    response = prompt_user_foundation_model(user_input)
+                if response:
+                    print("Model Output:")
+                    print(response)
+                else:
+                    print("Failed to interact with the Watson model.")
+                intent_completed.append(intent)
+            elif intent == "finished_interaction":
+                print("Thank you for using Watson. Goodbye!")
+                break
+            elif intent == "answer_project_questions":
+                # TODO: Use Watson to answer the questions about the project
+                print("The project is a FPGA-based system that uses a trained Watson model to perform specific tasks.")
+                print("The system consists of the following components:")
+                print("1) Machine learning model training module.")
+                print("2) FPGA hardware description language (HDL) generator.")
+                print("3) FPGA programming module.")
+                print("4) Watson model training module.")
+                print("5) Watson model interaction module.")
+                print("The system is designed to be modular and flexible for various applications.")
+            else:
+                print("Invalid or out-of-order intent detected. Skipping:", intent)
 
         continue_choice = input("Would you like to perform another task? (yes/no): ").lower()
         if continue_choice != 'yes':
