@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Oct 27 01:26:37 2024
+Analysis & Synthesis Status : Successful - Sun Oct 27 15:34:34 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : DE10_EcoLogic
 Top-level Entity Name : top_level
 Family : MAX 10
-Total logic elements : 7,418
-    Total combinational functions : 7,418
+Total logic elements : 7,395
+    Total combinational functions : 7,395
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 21
+Total pins : 65
 Total virtual pins : 0
 Total memory bits : 262,144
 Embedded Multiplier 9-bit elements : 0

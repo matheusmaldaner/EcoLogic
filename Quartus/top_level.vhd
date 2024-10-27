@@ -5,7 +5,16 @@ entity top_level is
     port (
         inputs: in std_logic_vector(9 downto 0);
 		  clk : in std_logic;
-        outputs: out std_logic_vector(9 downto 0)
+        outputs: out std_logic_vector(9 downto 0);
+		  
+		  seg0 : out std_logic_vector(6 downto 0);
+		  seg1 : out std_logic_vector(6 downto 0);
+		  seg2 : out std_logic_vector(6 downto 0);
+		  seg3 : out std_logic_vector(6 downto 0);
+		  seg4 : out std_logic_vector(6 downto 0);
+		  seg5 : out std_logic_vector(6 downto 0);
+		  dp : out std_logic;
+		  sample : out std_logic
     );
 end top_level;
 
@@ -149,6 +158,12 @@ begin
 			num_ones => count9
 		);
 		
+	U_SEG0 : entity work.decode7seg
+		port map(
+			input => max_index,
+			output => seg0
+		);
+		
 	U_MAXINDEX : max_finder
 		port map(
 			in0 => count0,
@@ -165,6 +180,7 @@ begin
 		);
 		
 	process (max_index) begin
+		sample <= '0';
 		case max_index is
 			when "0000" =>
 				argmax_out <= "0000000001";
@@ -178,6 +194,7 @@ begin
 				argmax_out <= "0000010000";
 			when "0101" =>
 				argmax_out <= "0000100000";
+				sample <= '1';
 			when "0110" =>
 				argmax_out <= "0001000000";
 			when "0111" =>
@@ -192,5 +209,14 @@ begin
 	end process;
 	
 	outputs <= argmax_out;
+	
+	
+	-- Hard code the 7 segment display to say "Class"
+	seg5 <= "1000110";
+	seg4 <= "1000111";
+	seg3 <= "0001000";
+	seg2 <= "0010010";
+	seg1 <= "0010010";
+	dp <= '0';
 		 
 end bhv;

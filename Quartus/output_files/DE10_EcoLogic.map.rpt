@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_EcoLogic
-Sun Oct 27 01:26:38 2024
+Sun Oct 27 15:34:35 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -60,16 +60,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 27 01:26:37 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 27 15:34:34 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; DE10_EcoLogic                                  ;
 ; Top-level Entity Name              ; top_level                                      ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 7,418                                          ;
-;     Total combinational functions  ; 7,418                                          ;
+; Total logic elements               ; 7,395                                          ;
+;     Total combinational functions  ; 7,395                                          ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 21                                             ;
+; Total pins                         ; 65                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 262,144                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -190,6 +190,7 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path           ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                     ; Library ;
 +--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
 ; ../verilog/16x16/model_001_logic_network.v ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_001_logic_network.v ;         ;
+; decode7seg.vhd                             ; yes             ; User VHDL File                         ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd                  ;         ;
 ; max_finder.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v                    ;         ;
 ; sum_ones.v                                 ; yes             ; User Verilog HDL File                  ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/sum_ones.v                      ;         ;
 ; top_level.vhd                              ; yes             ; User VHDL File                         ; C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd                   ;         ;
@@ -213,31 +214,31 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 7,418     ;
+; Estimated Total logic elements              ; 7,395     ;
 ;                                             ;           ;
-; Total combinational functions               ; 7418      ;
+; Total combinational functions               ; 7395      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 2473      ;
-;     -- 3 input functions                    ; 3266      ;
-;     -- <=2 input functions                  ; 1679      ;
+;     -- 4 input functions                    ; 2479      ;
+;     -- 3 input functions                    ; 3231      ;
+;     -- <=2 input functions                  ; 1685      ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 4609      ;
-;     -- arithmetic mode                      ; 2809      ;
+;     -- normal mode                          ; 4602      ;
+;     -- arithmetic mode                      ; 2793      ;
 ;                                             ;           ;
 ; Total registers                             ; 0         ;
 ;     -- Dedicated logic registers            ; 0         ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 21        ;
+; I/O pins                                    ; 65        ;
 ; Total memory bits                           ; 262144    ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 256       ;
-; Total fan-out                               ; 24707     ;
-; Average fan-out                             ; 3.20      ;
+; Total fan-out                               ; 24689     ;
+; Average fan-out                             ; 3.17      ;
 +---------------------------------------------+-----------+
 
 
@@ -246,22 +247,23 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                    ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
-; |top_level                                ; 7418 (18)           ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 21   ; 0            ; 0          ; |top_level                                                                             ; top_level       ; work         ;
+; |top_level                                ; 7395 (17)           ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 65   ; 0            ; 0          ; |top_level                                                                             ; top_level       ; work         ;
 ;    |ROM:U_MEMORY|                         ; 0 (0)               ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY                                                                ; ROM             ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
 ;          |altsyncram_his3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 262144      ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated ; altsyncram_his3 ; work         ;
-;    |logic_network:U_NETWORK|              ; 1726 (1726)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|logic_network:U_NETWORK                                                     ; logic_network   ; work         ;
+;    |decode7seg:U_SEG0|                    ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|decode7seg:U_SEG0                                                           ; decode7seg      ; work         ;
+;    |logic_network:U_NETWORK|              ; 1680 (1680)         ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|logic_network:U_NETWORK                                                     ; logic_network   ; work         ;
 ;    |max_finder:U_MAXINDEX|                ; 153 (153)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|max_finder:U_MAXINDEX                                                       ; max_finder      ; work         ;
-;    |sum_ones:U_SUM0|                      ; 553 (553)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM0                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM1|                      ; 531 (531)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM1                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM2|                      ; 580 (580)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM2                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM3|                      ; 563 (563)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM3                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM4|                      ; 554 (554)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM4                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM5|                      ; 555 (555)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM5                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM6|                      ; 548 (548)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM6                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM7|                      ; 551 (551)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM7                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM8|                      ; 547 (547)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM8                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM9|                      ; 539 (539)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM9                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM0|                      ; 555 (555)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM0                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM1|                      ; 536 (536)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM1                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM2|                      ; 554 (554)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM2                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM3|                      ; 549 (549)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM3                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM4|                      ; 552 (552)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM4                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM5|                      ; 552 (552)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM5                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM6|                      ; 558 (558)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM6                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM7|                      ; 552 (552)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM7                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM8|                      ; 558 (558)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM8                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM9|                      ; 559 (559)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |top_level|sum_ones:U_SUM9                                                             ; sum_ones        ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -513,21 +515,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 21                          ;
-; cycloneiii_lcell_comb ; 7418                        ;
-;     arith             ; 2809                        ;
-;         2 data inputs ; 379                         ;
-;         3 data inputs ; 2430                        ;
-;     normal            ; 4609                        ;
-;         0 data inputs ; 538                         ;
+; boundary_port         ; 65                          ;
+; cycloneiii_lcell_comb ; 7400                        ;
+;     arith             ; 2793                        ;
+;         2 data inputs ; 357                         ;
+;         3 data inputs ; 2436                        ;
+;     normal            ; 4607                        ;
+;         0 data inputs ; 542                         ;
 ;         1 data inputs ; 112                         ;
-;         2 data inputs ; 650                         ;
-;         3 data inputs ; 836                         ;
-;         4 data inputs ; 2473                        ;
+;         2 data inputs ; 679                         ;
+;         3 data inputs ; 795                         ;
+;         4 data inputs ; 2479                        ;
 ; cycloneiii_ram_block  ; 256                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 44.30                       ;
-; Average LUT depth     ; 29.24                       ;
+; Max LUT depth         ; 44.10                       ;
+; Average LUT depth     ; 29.93                       ;
 +-----------------------+-----------------------------+
 
 
@@ -546,25 +548,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Oct 27 01:26:22 2024
+    Info: Processing started: Sun Oct 27 15:34:20 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_EcoLogic -c DE10_EcoLogic
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/lando/documents/github/ecologic/verilog/16x16/model_001_logic_network.v
     Info (12023): Found entity 1: logic_network File: C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_001_logic_network.v Line: 1
+Info (12021): Found 2 design units, including 1 entities, in source file decode7seg.vhd
+    Info (12022): Found design unit 1: decode7seg-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 11
+    Info (12023): Found entity 1: decode7seg File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file max_finder.v
     Info (12023): Found entity 1: max_finder File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sum_ones.v
     Info (12023): Found entity 1: sum_ones File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/sum_ones.v Line: 1
 Info (12021): Found 2 design units, including 1 entities, in source file top_level.vhd
-    Info (12022): Found design unit 1: top_level-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Info (12022): Found design unit 1: top_level-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 21
     Info (12023): Found entity 1: top_level File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
     Info (12022): Found design unit 1: rom-SYN File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 54
     Info (12023): Found entity 1: ROM File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 43
 Warning (12019): Can't analyze file -- file count_ones.vhd is missing
 Info (12127): Elaborating entity "top_level" for the top level hierarchy
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:U_MEMORY" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 48
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:U_MEMORY" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 57
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ROM:U_MEMORY|altsyncram:altsyncram_component" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 61
 Info (12130): Elaborated megafunction instantiation "ROM:U_MEMORY|altsyncram:altsyncram_component" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 61
 Info (12133): Instantiated megafunction "ROM:U_MEMORY|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 61
@@ -621,23 +626,68 @@ Info (12133): Instantiated megafunction "ROM:U_MEMORY|altsyncram:altsyncram_comp
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_his3.tdf
     Info (12023): Found entity 1: altsyncram_his3 File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/db/altsyncram_his3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_his3" for hierarchy "ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "logic_network" for hierarchy "logic_network:U_NETWORK" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 56
-Info (12128): Elaborating entity "sum_ones" for hierarchy "sum_ones:U_SUM0" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 62
-Info (12128): Elaborating entity "max_finder" for hierarchy "max_finder:U_MAXINDEX" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 152
+Info (12128): Elaborating entity "logic_network" for hierarchy "logic_network:U_NETWORK" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 65
+Info (12128): Elaborating entity "sum_ones" for hierarchy "sum_ones:U_SUM0" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 71
+Info (12128): Elaborating entity "decode7seg" for hierarchy "decode7seg:U_SEG0" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 161
+Info (10041): Inferred latch for "output[0]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (10041): Inferred latch for "output[1]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (10041): Inferred latch for "output[2]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (10041): Inferred latch for "output[3]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (10041): Inferred latch for "output[4]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (10041): Inferred latch for "output[5]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (10041): Inferred latch for "output[6]" at decode7seg.vhd(14) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/decode7seg.vhd Line: 14
+Info (12128): Elaborating entity "max_finder" for hierarchy "max_finder:U_MAXINDEX" File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 167
 Warning (10230): Verilog HDL assignment warning at max_finder.v(41): truncated value with size 32 to match size of target (4) File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v Line: 41
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg1[0]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg1[1]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg1[2]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg1[3]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg1[4]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg1[5]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg1[6]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 11
+    Warning (13410): Pin "seg2[0]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg2[1]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg2[2]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg2[3]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg2[4]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg2[5]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg2[6]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 12
+    Warning (13410): Pin "seg3[0]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg3[1]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg3[2]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg3[3]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg3[4]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg3[5]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg3[6]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 13
+    Warning (13410): Pin "seg4[0]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg4[1]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg4[2]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg4[3]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg4[4]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg4[5]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg4[6]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 14
+    Warning (13410): Pin "seg5[0]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "seg5[1]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "seg5[2]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "seg5[3]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "seg5[4]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "seg5[5]" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "seg5[6]" is stuck at VCC File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 15
+    Warning (13410): Pin "dp" is stuck at GND File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level.vhd Line: 16
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7695 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7716 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 7418 logic cells
+    Info (21059): Implemented 54 output pins
+    Info (21061): Implemented 7395 logic cells
     Info (21064): Implemented 256 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4979 megabytes
-    Info: Processing ended: Sun Oct 27 01:26:38 2024
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:15
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 4976 megabytes
+    Info: Processing ended: Sun Oct 27 15:34:35 2024
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:14
 
 
