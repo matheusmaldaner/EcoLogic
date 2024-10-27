@@ -88,14 +88,13 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name VERILOG_FILE ../verilog/16x16/model_003_logic_network.v
+set_global_assignment -name VERILOG_FILE ../verilog/16x16/model_020_logic_network.v
 set_global_assignment -name VERILOG_FILE max_finder.v
 set_global_assignment -name VERILOG_FILE sum_ones.v
 set_global_assignment -name VHDL_FILE top_level.vhd
 set_global_assignment -name QIP_FILE ROM.qip
 set_global_assignment -name VHDL_FILE argmax.vhd
 set_global_assignment -name VERILOG_FILE dummy_network.v
-set_global_assignment -name VHDL_FILE top_level_tb.vhd
 set_global_assignment -name VHDL_FILE argmax_tb.vhd
 set_global_assignment -name QIP_FILE RAM.qip
 set_global_assignment -name VHDL_FILE count_ones_datapath.vhd
