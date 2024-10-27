@@ -1,12 +1,15 @@
+import pydwf
+import pydwf.utilities as utilities
 import requests
 import json
+import time
+import random
 
-# Set up the API credentials
+# IBM Watson Assistant setup
 api_key = "fmN5CM-_viFpSQrBfTTtqcUNZm2-C0ELThKrNNtYQb4p"
-url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"  # Update based on your Watson ML instance URL
+url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
 space_id = "1925a9ba-464e-4f1f-a940-3ad952863409"
 
-# Generate an access token using your API key
 def get_access_token(api_key):
     auth_url = "https://iam.cloud.ibm.com/identity/token"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
@@ -28,29 +31,27 @@ headers = {
     "Authorization": f"Bearer {access_token}"
 }
 
-# Data storage dictionary to store user-provided files and configurations
-user_data = {
-    "training_data": None,
-    "model": None,
-    "hdl_files": None,
-    "fpga_programmed": False,
-    "watson_model_prompt": None
-}
+# Track the previous state of the hurricane
+previous_state = None
 
-# Step tracking variable
-intent_completed = []
+def check_hurricane_state(new_state):
+    """Compare the new state with the previous state to determine if a warning should be issued."""
+    global previous_state
+    idx_old = previous_state.find('1') if previous_state else -1
+    idx = new_state.find('1')
+    if idx_old != idx:
+        previous_state = new_state
+        # identify the idx of the channel that is 1
+        return True, idx
+    return False, idx
 
 def prompt_foundation_model(user_input):
     """Prompts the Watson foundation model to generate a response."""
-    model_id = "ibm/granite-13b-chat-v2"  # Update with the correct model ID
-    project_id = "c140dad4-376a-4958-a9ad-28c2b55ed009"  # Update with your actual project ID
+    model_id = "ibm/granite-13b-chat-v2"
+    project_id = "c140dad4-376a-4958-a9ad-28c2b55ed009"
 
-    # Construct the prompt based on user input
-    prompt_text = f"""
-<|start_of_system|>assistant<|end_of_system|> You are an AI assistant designed to warn users about the danger of the hurricane they could face. The following is a user message: <|start_of_user_message|> {user_input} <|end_of_user_message|> Respond with information regarding the danger of the hurricane. Be informative and helpful. Further explain the steps to take to ensure safety.
-"""
+    prompt_text = f"""<|start_of_system|>assistant<|end_of_system|> You are an AI assistant designed to warn users about the danger of the hurricane they could face. The following is a user message: <|start_of_user_message|> {user_input} <|end_of_user_message|> Respond with information regarding the danger of the hurricane. Be informative and helpful. Further explain the steps to take to ensure safety."""
 
-    # Define the payload for the foundation model
     body = {
         "input": prompt_text,
         "parameters": {
@@ -62,7 +63,6 @@ def prompt_foundation_model(user_input):
         "project_id": project_id
     }
 
-    # Call the Watson Machine Learning deployment endpoint
     try:
         response = requests.post(
             url,
@@ -73,37 +73,65 @@ def prompt_foundation_model(user_input):
             raise Exception("Non-200 response: " + str(response.text))
 
         data = response.json()
-        
-        # Parse the 'generated_text' from the nested structure
         if 'results' in data and len(data['results']) > 0 and 'generated_text' in data['results'][0]:
             generated_text = data['results'][0]['generated_text'].strip()
-            # Split the generated text by commas and strip whitespace
-            intents = [intent.strip() for intent in generated_text.split(',')]
-            return intents
+            return generated_text
         else:
             print("Unexpected response structure. Full response logged below:")
             print(json.dumps(data, indent=2))
-            return []
+            return ""
     except Exception as e:
         print(f"An error occurred: {e}")
-        return []
+        return ""
 
-def watson_intro():
+def sample_dad3():
+    dwf = pydwf.DwfLibrary()
+    with utilities.openDwfDevice(dwf) as device:
+        digitalIn = device.digitalIn
+        digitalIn.reset()
+        digitalIn.sampleFormatSet(16)
+        digitalIn.dividerSet(1)
+        digitalIn.bufferSizeSet(4096)
+        digitalIn.configure(reconfigure=True, start=True)
 
-    user_input = input("Please describe what you would like to do, and I will assist you: ")
-    intents = prompt_foundation_model(user_input)
-    if intents:
-        print("Intents identified:", intents)
-        return intents
-    else:
-        print("Failed to get a response from the foundation model.")
-        return []
+        while not digitalIn.status(read_data_flag=True):
+            time.sleep(0.01)
+
+        data = digitalIn.statusData(1)
+        states = [(data[0] >> bit) & 1 for bit in range(6)]
+        return states
+
+def fake_sample_dad3():
+    """Fake data for testing purposes."""
+    idx = random.randint(0, 5)
+    data = [0 for _ in range(6)]
+    data[idx] = 1
+    return data
 
 def main():
     """Main interaction loop for Watson's platform."""
+    global previous_state
     while True:
-        #TODO: Create sampling loop
-        continue
+        # Sample data from the DAD3
+        current_sample = sample_dad3()
+        #current_sample = fake_sample_dad3()  # For testing purposes
+        state_description = f"The hurricane we are going to experience is a category {current_sample} hurricane. What should we do?"
+
+        # Check if the state has changed
+        chk, idx = check_hurricane_state(state_description)
+
+        if chk:
+            print(f"New state detected: {idx}")
+            warning_message = prompt_foundation_model(state_description)
+            if warning_message:
+                print(f"Watson Response: {warning_message}")
+            else:
+                print("No response received from Watson.")
+        else:
+            print("No significant change detected.")
+
+        # Wait before the next sample
+        time.sleep(5)
 
 # Run the main function
 if __name__ == "__main__":
