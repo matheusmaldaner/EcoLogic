@@ -1,4 +1,11 @@
-C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd
+C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_001_logic_network.v {1 {vlog -work work -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_001_logic_network.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module logic_network
+
+Top level modules:
+	logic_network
+
+} {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_tb.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -9,12 +16,12 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling architecture tb of top_level_tb
 -- Loading entity top_level_sim
 
-} {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_001_logic_network.v {1 {vlog -work work -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/verilog/16x16/model_001_logic_network.v
+} {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v {1 {vlog -work work -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module logic_network
+-- Compiling module max_finder
 
 Top level modules:
-	logic_network
+	max_finder
 
 } {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/sum_ones.v {1 {vlog -work work -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/sum_ones.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -22,13 +29,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	sum_ones
-
-} {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v {1 {vlog -work work -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/max_finder.v
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module max_finder
-
-Top level modules:
-	max_finder
 
 } {} {}} C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_sim.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/top_level_sim.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016

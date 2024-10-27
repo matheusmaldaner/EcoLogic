@@ -1,5 +1,5 @@
 Timing Analyzer report for DE10_EcoLogic
-Sun Oct 27 01:07:29 2024
+Sun Oct 27 01:27:02 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -91,12 +91,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.97        ;
+; Average used               ; 2.48        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  65.6%      ;
+;     Processors 2-4         ;  49.4%      ;
 +----------------------------+-------------+
 
 
@@ -144,7 +144,7 @@ No paths to report.
 +-------+--------+----------------------------------+
 ; Clock ; Slack  ; End Point TNS                    ;
 +-------+--------+----------------------------------+
-; clk   ; -3.000 ; -66.402                          ;
+; clk   ; -3.000 ; -66.394                          ;
 +-------+--------+----------------------------------+
 
 
@@ -228,7 +228,7 @@ No paths to report.
 +-------+--------+---------------------------------+
 ; Clock ; Slack  ; End Point TNS                   ;
 +-------+--------+---------------------------------+
-; clk   ; -3.000 ; -34.739                         ;
+; clk   ; -3.000 ; -34.691                         ;
 +-------+--------+---------------------------------+
 
 
@@ -245,8 +245,8 @@ No synchronizer chains to report.
 +------------------+-------+------+----------+---------+---------------------+
 ; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; -3.000              ;
 ;  clk             ; N/A   ; N/A  ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; -66.402             ;
-;  clk             ; N/A   ; N/A  ; N/A      ; N/A     ; -66.402             ;
+; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; -66.394             ;
+;  clk             ; N/A   ; N/A  ; N/A      ; N/A     ; -66.394             ;
 +------------------+-------+------+----------+---------+---------------------+
 
 
@@ -471,7 +471,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Oct 27 01:07:22 2024
+    Info: Processing started: Sun Oct 27 01:26:58 2024
 Info: Command: quartus_sta DE10_EcoLogic -c DE10_EcoLogic
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -496,7 +496,7 @@ Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -66.402 clk 
+    Info (332119):    -3.000             -66.394 clk 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
@@ -522,13 +522,13 @@ Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -34.739 clk 
+    Info (332119):    -3.000             -34.691 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4912 megabytes
-    Info: Processing ended: Sun Oct 27 01:07:29 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Sun Oct 27 01:27:02 2024
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:07
 
 

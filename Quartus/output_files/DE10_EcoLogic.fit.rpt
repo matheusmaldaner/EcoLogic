@@ -1,5 +1,5 @@
 Fitter report for DE10_EcoLogic
-Sun Oct 27 01:07:16 2024
+Sun Oct 27 01:26:53 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -67,15 +67,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                      ;
 +------------------------------------+------------------------------------------------+
-; Fitter Status                      ; Successful - Sun Oct 27 01:07:16 2024          ;
+; Fitter Status                      ; Successful - Sun Oct 27 01:26:53 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; DE10_EcoLogic                                  ;
 ; Top-level Entity Name              ; top_level                                      ;
 ; Family                             ; MAX 10                                         ;
 ; Device                             ; 10M50DAF484C6GES                               ;
 ; Timing Models                      ; Preliminary                                    ;
-; Total logic elements               ; 11,491 / 49,760 ( 23 % )                       ;
-;     Total combinational functions  ; 11,491 / 49,760 ( 23 % )                       ;
+; Total logic elements               ; 7,419 / 49,760 ( 15 % )                        ;
+;     Total combinational functions  ; 7,419 / 49,760 ( 15 % )                        ;
 ;     Dedicated logic registers      ; 0 / 49,760 ( 0 % )                             ;
 ; Total registers                    ; 0                                              ;
 ; Total pins                         ; 21 / 360 ( 6 % )                               ;
@@ -153,30 +153,30 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.93        ;
+; Average used               ; 1.72        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  31.1%      ;
-;     Processor 3            ;  31.1%      ;
-;     Processor 4            ;  31.1%      ;
+;     Processor 2            ;  23.9%      ;
+;     Processor 3            ;  23.8%      ;
+;     Processor 4            ;  23.8%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Incremental Compilation Preservation Summary                                                       ;
-+---------------------+----------------------+----------------------------+--------------------------+
-; Type                ; Total [A + B]        ; From Design Partitions [A] ; From Rapid Recompile [B] ;
-+---------------------+----------------------+----------------------------+--------------------------+
-; Placement (by node) ;                      ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 11809 ) ; 0.00 % ( 0 / 11809 )       ; 0.00 % ( 0 / 11809 )     ;
-;     -- Achieved     ; 0.00 % ( 0 / 11809 ) ; 0.00 % ( 0 / 11809 )       ; 0.00 % ( 0 / 11809 )     ;
-;                     ;                      ;                            ;                          ;
-; Routing (by net)    ;                      ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 0 )     ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-;     -- Achieved     ; 0.00 % ( 0 / 0 )     ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
-+---------------------+----------------------+----------------------------+--------------------------+
++---------------------------------------------------------------------------------------------------+
+; Incremental Compilation Preservation Summary                                                      ;
++---------------------+---------------------+----------------------------+--------------------------+
+; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
++---------------------+---------------------+----------------------------+--------------------------+
+; Placement (by node) ;                     ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 7737 ) ; 0.00 % ( 0 / 7737 )        ; 0.00 % ( 0 / 7737 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 7737 ) ; 0.00 % ( 0 / 7737 )        ; 0.00 % ( 0 / 7737 )      ;
+;                     ;                     ;                            ;                          ;
+; Routing (by net)    ;                     ;                            ;                          ;
+;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
+;     -- Achieved     ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
++---------------------+---------------------+----------------------------+--------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -194,7 +194,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 11793 )  ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 7721 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -210,26 +210,26 @@ The pin-out file can be found in C:/Users/lando/Documents/GitHub/EcoLogic/Quartu
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Total logic elements                        ; 11,491 / 49,760 ( 23 % )     ;
-;     -- Combinational with no register       ; 11491                        ;
+; Total logic elements                        ; 7,419 / 49,760 ( 15 % )      ;
+;     -- Combinational with no register       ; 7419                         ;
 ;     -- Register only                        ; 0                            ;
 ;     -- Combinational with a register        ; 0                            ;
 ;                                             ;                              ;
 ; Logic element usage by number of LUT inputs ;                              ;
-;     -- 4 input functions                    ; 5849                         ;
-;     -- 3 input functions                    ; 3775                         ;
-;     -- <=2 input functions                  ; 1867                         ;
+;     -- 4 input functions                    ; 2473                         ;
+;     -- 3 input functions                    ; 3266                         ;
+;     -- <=2 input functions                  ; 1680                         ;
 ;     -- Register only                        ; 0                            ;
 ;                                             ;                              ;
 ; Logic elements by mode                      ;                              ;
-;     -- normal mode                          ; 8622                         ;
-;     -- arithmetic mode                      ; 2869                         ;
+;     -- normal mode                          ; 4610                         ;
+;     -- arithmetic mode                      ; 2809                         ;
 ;                                             ;                              ;
 ; Total registers*                            ; 0 / 51,509 ( 0 % )           ;
 ;     -- Dedicated logic registers            ; 0 / 49,760 ( 0 % )           ;
 ;     -- I/O registers                        ; 0 / 1,749 ( 0 % )            ;
 ;                                             ;                              ;
-; Total LABs:  partially or completely used   ; 1,015 / 3,110 ( 33 % )       ;
+; Total LABs:  partially or completely used   ; 536 / 3,110 ( 17 % )         ;
 ; Virtual pins                                ; 0                            ;
 ; I/O pins                                    ; 21 / 360 ( 6 % )             ;
 ;     -- Clock pins                           ; 1 / 8 ( 13 % )               ;
@@ -249,88 +249,88 @@ The pin-out file can be found in C:/Users/lando/Documents/GitHub/EcoLogic/Quartu
 ; Remote update blocks                        ; 0 / 1 ( 0 % )                ;
 ; Oscillator blocks                           ; 0 / 1 ( 0 % )                ;
 ; Impedance control blocks                    ; 0 / 1 ( 0 % )                ;
-; Average interconnect usage (total/H/V)      ; 19.6% / 18.8% / 20.6%        ;
-; Peak interconnect usage (total/H/V)         ; 82.8% / 80.3% / 87.4%        ;
-; Maximum fan-out                             ; 596                          ;
-; Highest non-global fan-out                  ; 108                          ;
-; Total fan-out                               ; 37037                        ;
-; Average fan-out                             ; 3.20                         ;
+; Average interconnect usage (total/H/V)      ; 6.5% / 5.9% / 7.3%           ;
+; Peak interconnect usage (total/H/V)         ; 44.7% / 41.9% / 48.7%        ;
+; Maximum fan-out                             ; 352                          ;
+; Highest non-global fan-out                  ; 53                           ;
+; Total fan-out                               ; 21876                        ;
+; Average fan-out                             ; 2.91                         ;
 +---------------------------------------------+------------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
 
 
-+-------------------------------------------------------------------------------------------------------+
-; Fitter Partition Statistics                                                                           ;
-+---------------------------------------------+------------------------+--------------------------------+
-; Statistic                                   ; Top                    ; hard_block:auto_generated_inst ;
-+---------------------------------------------+------------------------+--------------------------------+
-; Difficulty Clustering Region                ; Low                    ; Low                            ;
-;                                             ;                        ;                                ;
-; Total logic elements                        ; 11491 / 49760 ( 23 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 11491                  ; 0                              ;
-;     -- Register only                        ; 0                      ; 0                              ;
-;     -- Combinational with a register        ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Logic element usage by number of LUT inputs ;                        ;                                ;
-;     -- 4 input functions                    ; 5849                   ; 0                              ;
-;     -- 3 input functions                    ; 3775                   ; 0                              ;
-;     -- <=2 input functions                  ; 1867                   ; 0                              ;
-;     -- Register only                        ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Logic elements by mode                      ;                        ;                                ;
-;     -- normal mode                          ; 8622                   ; 0                              ;
-;     -- arithmetic mode                      ; 2869                   ; 0                              ;
-;                                             ;                        ;                                ;
-; Total registers                             ; 0                      ; 0                              ;
-;     -- Dedicated logic registers            ; 0 / 49760 ( 0 % )      ; 0 / 49760 ( 0 % )              ;
-;     -- I/O registers                        ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Total LABs:  partially or completely used   ; 1015 / 3110 ( 33 % )   ; 0 / 3110 ( 0 % )               ;
-;                                             ;                        ;                                ;
-; Virtual pins                                ; 0                      ; 0                              ;
-; I/O pins                                    ; 21                     ; 0                              ;
-; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )        ; 0 / 288 ( 0 % )                ;
-; Total memory bits                           ; 262144                 ; 0                              ;
-; Total RAM block bits                        ; 267264                 ; 0                              ;
-; M9K                                         ; 29 / 182 ( 15 % )      ; 0 / 182 ( 0 % )                ;
-; Clock control block                         ; 1 / 24 ( 4 % )         ; 0 / 24 ( 0 % )                 ;
-; User Flash Memory                           ; 1 / 1 ( 100 % )        ; 0 / 1 ( 0 % )                  ;
-; Analog-to-Digital Converter                 ; 2 / 2 ( 100 % )        ; 0 / 2 ( 0 % )                  ;
-;                                             ;                        ;                                ;
-; Connections                                 ;                        ;                                ;
-;     -- Input Connections                    ; 0                      ; 0                              ;
-;     -- Registered Input Connections         ; 0                      ; 0                              ;
-;     -- Output Connections                   ; 0                      ; 0                              ;
-;     -- Registered Output Connections        ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Internal Connections                        ;                        ;                                ;
-;     -- Total Connections                    ; 37648                  ; 8                              ;
-;     -- Registered Connections               ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; External Connections                        ;                        ;                                ;
-;     -- Top                                  ; 0                      ; 0                              ;
-;     -- hard_block:auto_generated_inst       ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Partition Interface                         ;                        ;                                ;
-;     -- Input Ports                          ; 11                     ; 0                              ;
-;     -- Output Ports                         ; 10                     ; 0                              ;
-;     -- Bidir Ports                          ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Registered Ports                            ;                        ;                                ;
-;     -- Registered Input Ports               ; 0                      ; 0                              ;
-;     -- Registered Output Ports              ; 0                      ; 0                              ;
-;                                             ;                        ;                                ;
-; Port Connectivity                           ;                        ;                                ;
-;     -- Input Ports driven by GND            ; 0                      ; 0                              ;
-;     -- Output Ports driven by GND           ; 0                      ; 0                              ;
-;     -- Input Ports driven by VCC            ; 0                      ; 0                              ;
-;     -- Output Ports driven by VCC           ; 0                      ; 0                              ;
-;     -- Input Ports with no Source           ; 0                      ; 0                              ;
-;     -- Output Ports with no Source          ; 0                      ; 0                              ;
-;     -- Input Ports with no Fanout           ; 0                      ; 0                              ;
-;     -- Output Ports with no Fanout          ; 0                      ; 0                              ;
-+---------------------------------------------+------------------------+--------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Fitter Partition Statistics                                                                          ;
++---------------------------------------------+-----------------------+--------------------------------+
+; Statistic                                   ; Top                   ; hard_block:auto_generated_inst ;
++---------------------------------------------+-----------------------+--------------------------------+
+; Difficulty Clustering Region                ; Low                   ; Low                            ;
+;                                             ;                       ;                                ;
+; Total logic elements                        ; 7419 / 49760 ( 15 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 7419                  ; 0                              ;
+;     -- Register only                        ; 0                     ; 0                              ;
+;     -- Combinational with a register        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic element usage by number of LUT inputs ;                       ;                                ;
+;     -- 4 input functions                    ; 2473                  ; 0                              ;
+;     -- 3 input functions                    ; 3266                  ; 0                              ;
+;     -- <=2 input functions                  ; 1680                  ; 0                              ;
+;     -- Register only                        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic elements by mode                      ;                       ;                                ;
+;     -- normal mode                          ; 4610                  ; 0                              ;
+;     -- arithmetic mode                      ; 2809                  ; 0                              ;
+;                                             ;                       ;                                ;
+; Total registers                             ; 0                     ; 0                              ;
+;     -- Dedicated logic registers            ; 0 / 49760 ( 0 % )     ; 0 / 49760 ( 0 % )              ;
+;     -- I/O registers                        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Total LABs:  partially or completely used   ; 536 / 3110 ( 17 % )   ; 0 / 3110 ( 0 % )               ;
+;                                             ;                       ;                                ;
+; Virtual pins                                ; 0                     ; 0                              ;
+; I/O pins                                    ; 21                    ; 0                              ;
+; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )       ; 0 / 288 ( 0 % )                ;
+; Total memory bits                           ; 262144                ; 0                              ;
+; Total RAM block bits                        ; 267264                ; 0                              ;
+; M9K                                         ; 29 / 182 ( 15 % )     ; 0 / 182 ( 0 % )                ;
+; Clock control block                         ; 1 / 24 ( 4 % )        ; 0 / 24 ( 0 % )                 ;
+; User Flash Memory                           ; 1 / 1 ( 100 % )       ; 0 / 1 ( 0 % )                  ;
+; Analog-to-Digital Converter                 ; 2 / 2 ( 100 % )       ; 0 / 2 ( 0 % )                  ;
+;                                             ;                       ;                                ;
+; Connections                                 ;                       ;                                ;
+;     -- Input Connections                    ; 0                     ; 0                              ;
+;     -- Registered Input Connections         ; 0                     ; 0                              ;
+;     -- Output Connections                   ; 0                     ; 0                              ;
+;     -- Registered Output Connections        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Internal Connections                        ;                       ;                                ;
+;     -- Total Connections                    ; 22228                 ; 8                              ;
+;     -- Registered Connections               ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; External Connections                        ;                       ;                                ;
+;     -- Top                                  ; 0                     ; 0                              ;
+;     -- hard_block:auto_generated_inst       ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Partition Interface                         ;                       ;                                ;
+;     -- Input Ports                          ; 11                    ; 0                              ;
+;     -- Output Ports                         ; 10                    ; 0                              ;
+;     -- Bidir Ports                          ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Registered Ports                            ;                       ;                                ;
+;     -- Registered Input Ports               ; 0                     ; 0                              ;
+;     -- Registered Output Ports              ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Port Connectivity                           ;                       ;                                ;
+;     -- Input Ports driven by GND            ; 0                     ; 0                              ;
+;     -- Output Ports driven by GND           ; 0                     ; 0                              ;
+;     -- Input Ports driven by VCC            ; 0                     ; 0                              ;
+;     -- Output Ports driven by VCC           ; 0                     ; 0                              ;
+;     -- Input Ports with no Source           ; 0                     ; 0                              ;
+;     -- Output Ports with no Source          ; 0                     ; 0                              ;
+;     -- Input Ports with no Fanout           ; 0                     ; 0                              ;
+;     -- Output Ports with no Fanout          ; 0                     ; 0                              ;
++---------------------------------------------+-----------------------+--------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -930,22 +930,22 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                    ; Entity Name     ; Library Name ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
-; |top_level                                ; 11491 (19)  ; 0 (0)                     ; 0 (0)         ; 262144      ; 29   ; 1          ; 0            ; 0       ; 0         ; 21   ; 0            ; 11491 (19)   ; 0 (0)             ; 0 (0)            ; 0          ; |top_level                                                                             ; top_level       ; work         ;
+; |top_level                                ; 7419 (19)   ; 0 (0)                     ; 0 (0)         ; 262144      ; 29   ; 1          ; 0            ; 0       ; 0         ; 21   ; 0            ; 7419 (19)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level                                                                             ; top_level       ; work         ;
 ;    |ROM:U_MEMORY|                         ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 262144      ; 29   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|ROM:U_MEMORY                                                                ; ROM             ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 262144      ; 29   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
 ;          |altsyncram_his3:auto_generated| ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 262144      ; 29   ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated ; altsyncram_his3 ; work         ;
-;    |logic_network:U_NETWORK|              ; 5729 (5729) ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 5729 (5729)  ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|logic_network:U_NETWORK                                                     ; logic_network   ; work         ;
+;    |logic_network:U_NETWORK|              ; 1726 (1726) ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1726 (1726)  ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|logic_network:U_NETWORK                                                     ; logic_network   ; work         ;
 ;    |max_finder:U_MAXINDEX|                ; 153 (153)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 153 (153)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|max_finder:U_MAXINDEX                                                       ; max_finder      ; work         ;
-;    |sum_ones:U_SUM0|                      ; 576 (576)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 576 (576)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM0                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM1|                      ; 553 (553)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 553 (553)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM1                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM2|                      ; 565 (565)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 565 (565)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM2                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM3|                      ; 541 (541)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 541 (541)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM3                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM4|                      ; 550 (550)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 550 (550)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM4                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM5|                      ; 563 (563)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 563 (563)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM5                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM6|                      ; 584 (584)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 584 (584)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM6                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM7|                      ; 533 (533)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 533 (533)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM7                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM8|                      ; 555 (555)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 555 (555)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM8                                                             ; sum_ones        ; work         ;
-;    |sum_ones:U_SUM9|                      ; 570 (570)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 570 (570)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM9                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM0|                      ; 553 (553)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 553 (553)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM0                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM1|                      ; 531 (531)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 531 (531)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM1                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM2|                      ; 580 (580)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 580 (580)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM2                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM3|                      ; 563 (563)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 563 (563)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM3                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM4|                      ; 554 (554)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 554 (554)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM4                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM5|                      ; 555 (555)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 555 (555)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM5                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM6|                      ; 548 (548)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 548 (548)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM6                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM7|                      ; 551 (551)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 551 (551)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM7                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM8|                      ; 547 (547)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 547 (547)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM8                                                             ; sum_ones        ; work         ;
+;    |sum_ones:U_SUM9|                      ; 539 (539)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 539 (539)    ; 0 (0)             ; 0 (0)            ; 0          ; |top_level|sum_ones:U_SUM9                                                             ; sum_ones        ; work         ;
 +-------------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+----------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -968,324 +968,324 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; clk        ; Input    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; inputs[0]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; inputs[1]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; inputs[2]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; inputs[2]  ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 ; inputs[3]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; inputs[4]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; inputs[5]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; inputs[6]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
 ; inputs[7]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; inputs[8]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; inputs[9]  ; Input    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; inputs[8]  ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; inputs[9]  ; Input    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
 +------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                                                                  ;
-+---------------------------------------------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                                                               ; Pad To Core Index ; Setting ;
-+---------------------------------------------------------------------------------------------------+-------------------+---------+
-; clk                                                                                               ;                   ;         ;
-; inputs[0]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[1]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[2]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[3]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[4]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[5]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[6]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[7]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[8]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-; inputs[9]                                                                                         ;                   ;         ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a8   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a9   ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a11  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a15  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a19  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a22  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a23  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a37  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a39  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a50  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a67  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a88  ; 0                 ; 6       ;
-;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a106 ; 0                 ; 6       ;
-+---------------------------------------------------------------------------------------------------+-------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                                                                                 ;
++--------------------------------------------------------------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                                                                              ; Pad To Core Index ; Setting ;
++--------------------------------------------------------------------------------------------------+-------------------+---------+
+; clk                                                                                              ;                   ;         ;
+; inputs[0]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[1]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[2]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 1                 ; 6       ;
+; inputs[3]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[4]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[5]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[6]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[7]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 0                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 0                 ; 6       ;
+; inputs[8]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 1                 ; 6       ;
+; inputs[9]                                                                                        ;                   ;         ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a0  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a1  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a2  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a3  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a4  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a5  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a6  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a7  ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a10 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a12 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a14 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a16 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a17 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a18 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a20 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a21 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a24 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a25 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a26 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a31 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a34 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a38 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a41 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a45 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a52 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a55 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a63 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a74 ; 1                 ; 6       ;
+;      - ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ram_block1a83 ; 1                 ; 6       ;
++--------------------------------------------------------------------------------------------------+-------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -1311,7 +1311,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 ; Name                                                                                   ; Type ; Mode ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Size   ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M9Ks ; MIF             ; Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ; Mixed Width RDW Mode ; Port A RDW Mode        ; Port B RDW Mode        ; ECC Mode ; ECC Pipeline Registers ; Fits in MLABs ;
 +----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
-; ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 1024         ; 256          ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 262144 ; 1024                        ; 256                         ; --                          ; --                          ; 262144              ; 29   ; image_input.mif ; M9K_X33_Y19_N0, M9K_X33_Y29_N0, M9K_X33_Y32_N0, M9K_X33_Y22_N0, M9K_X53_Y33_N0, M9K_X33_Y31_N0, M9K_X33_Y25_N0, M9K_X53_Y20_N0, M9K_X53_Y30_N0, M9K_X53_Y34_N0, M9K_X33_Y21_N0, M9K_X33_Y24_N0, M9K_X53_Y23_N0, M9K_X73_Y47_N0, M9K_X53_Y21_N0, M9K_X33_Y26_N0, M9K_X53_Y44_N0, M9K_X73_Y31_N0, M9K_X73_Y51_N0, M9K_X73_Y28_N0, M9K_X33_Y20_N0, M9K_X33_Y33_N0, M9K_X53_Y31_N0, M9K_X53_Y29_N0, M9K_X73_Y33_N0, M9K_X33_Y30_N0, M9K_X53_Y19_N0, M9K_X73_Y30_N0, M9K_X53_Y22_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
+; ROM:U_MEMORY|altsyncram:altsyncram_component|altsyncram_his3:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; Single Clock ; 1024         ; 256          ; --           ; --           ; yes                    ; no                      ; --                     ; --                      ; 262144 ; 1024                        ; 256                         ; --                          ; --                          ; 262144              ; 29   ; image_input.mif ; M9K_X53_Y29_N0, M9K_X33_Y29_N0, M9K_X33_Y27_N0, M9K_X33_Y22_N0, M9K_X33_Y15_N0, M9K_X33_Y16_N0, M9K_X33_Y26_N0, M9K_X53_Y19_N0, M9K_X33_Y30_N0, M9K_X33_Y28_N0, M9K_X53_Y38_N0, M9K_X33_Y14_N0, M9K_X53_Y17_N0, M9K_X53_Y15_N0, M9K_X33_Y23_N0, M9K_X33_Y19_N0, M9K_X33_Y18_N0, M9K_X33_Y17_N0, M9K_X53_Y23_N0, M9K_X33_Y20_N0, M9K_X53_Y18_N0, M9K_X73_Y15_N0, M9K_X53_Y22_N0, M9K_X53_Y21_N0, M9K_X33_Y21_N0, M9K_X53_Y20_N0, M9K_X53_Y16_N0, M9K_X53_Y14_N0, M9K_X33_Y24_N0 ; Don't care           ; New data with NBE Read ; New data with NBE Read ; Off      ; No                     ; No - Unknown  ;
 +----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+------+-----------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+------------------------+------------------------+----------+------------------------+---------------+
 Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
 
@@ -1452,139 +1452,135 @@ RAM content values are presented in the following format: (Binary) (Octal) (Deci
 ;1016;(0000111111000000000111111111000000011100001110000000111000001100000001110000000000000011101111100000001111111111000001111110000000001111111000000000110001100000000010000110000000011000001000000000100000110000000010000011000000001100001100000000110000110000) (1414006060) (204475440) (C300C30)    ;(0000000000011000000000000001100000000000000110000000000000110000000000000011000000000000011000000000000001100000000000001100000000000001100000000000000110000000000000110000000000000011000000000000011000000000000011000000000000001100000000000001100000000000) (1400014000) (201332736) (C001800)   ;(0000011111110000000011111111100000011000111111000001100001111100001100000111111001110000000111100111000000011111011100000000111101110000000011110111000000000111011100000000011101111000000001110111100000000110011111000000111000111111000011100001111111111100) (2073123644) (-1089593348) (-40-15-1-1400-4)   ;(0000000000000111000000000000111100000000001111110000000011110011000000111110001100001111100001110001111100000111011111100000011011111100000011101111000000011100111000000011110011000000011110000000000001110000000000001110000000000001111000000000000111000000) (-1165326156) (-2116025920) (-7-14-1-15-15-14-40)   ;(0000000011100000000000011100000000000011110000000000001110000000000001110000000000000111000000000000011000000000000011111000000000011111111000000001111111110000000111110011000000011100001110000001110000011000000011100001100000000111111110000000001111111000) (776001770) (133694456) (7F803F8)   ;(0000000001111100000000011110100000000111100100000000111000100000000011000110000000000001111110000000001111011000000001110001110000000110000010000000000000001000000000000001100000000000000110000000000000010000100000000011000011000000001000001111111111000000) (-2137305948) (1075904448) (4020FFC0)   ;(0000000000000000000011110000000000011111110000000011000001100000001000000111000000000000001100000000000000110000000000000011000000000000001100000000000000110000000000000110000000000000011000000000000011000000000000001000000000000001100000000000000100000000) (140000400) (25166080) (1800100)   ;(0000000000000000000000000000000000000000000000000000000000000000000000001100011100000011111111100000111111000110000111000000110000000000000110000000000000010000000000000010000000000000011000000000000011000000000000011000000000000011000000000000011000000000) (-1035324056) (-2097150464) (-7-12-15-15-15-1000)   ;
 
 
-+---------------------------------------------------+
-; Routing Usage Summary                             ;
-+-----------------------+---------------------------+
-; Routing Resource Type ; Usage                     ;
-+-----------------------+---------------------------+
-; Block interconnects   ; 20,365 / 148,641 ( 14 % ) ;
-; C16 interconnects     ; 1,149 / 5,382 ( 21 % )    ;
-; C4 interconnects      ; 19,820 / 106,704 ( 19 % ) ;
-; Direct links          ; 1,071 / 148,641 ( < 1 % ) ;
-; Global clocks         ; 1 / 20 ( 5 % )            ;
-; Local interconnects   ; 5,508 / 49,760 ( 11 % )   ;
-; NSLEEPs               ; 0 / 500 ( 0 % )           ;
-; R24 interconnects     ; 1,226 / 5,406 ( 23 % )    ;
-; R4 interconnects      ; 24,290 / 147,764 ( 16 % ) ;
-+-----------------------+---------------------------+
++-------------------------------------------------+
+; Routing Usage Summary                           ;
++-----------------------+-------------------------+
+; Routing Resource Type ; Usage                   ;
++-----------------------+-------------------------+
+; Block interconnects   ; 9,607 / 148,641 ( 6 % ) ;
+; C16 interconnects     ; 329 / 5,382 ( 6 % )     ;
+; C4 interconnects      ; 7,266 / 106,704 ( 7 % ) ;
+; Direct links          ; 917 / 148,641 ( < 1 % ) ;
+; Global clocks         ; 1 / 20 ( 5 % )          ;
+; Local interconnects   ; 3,567 / 49,760 ( 7 % )  ;
+; NSLEEPs               ; 0 / 500 ( 0 % )         ;
+; R24 interconnects     ; 335 / 5,406 ( 6 % )     ;
+; R4 interconnects      ; 7,945 / 147,764 ( 5 % ) ;
++-----------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------+
+; LAB Logic Elements                                                          ;
++---------------------------------------------+-------------------------------+
+; Number of Logic Elements  (Average = 13.84) ; Number of LABs  (Total = 536) ;
++---------------------------------------------+-------------------------------+
+; 1                                           ; 35                            ;
+; 2                                           ; 7                             ;
+; 3                                           ; 0                             ;
+; 4                                           ; 3                             ;
+; 5                                           ; 6                             ;
+; 6                                           ; 4                             ;
+; 7                                           ; 4                             ;
+; 8                                           ; 7                             ;
+; 9                                           ; 3                             ;
+; 10                                          ; 2                             ;
+; 11                                          ; 8                             ;
+; 12                                          ; 15                            ;
+; 13                                          ; 12                            ;
+; 14                                          ; 38                            ;
+; 15                                          ; 55                            ;
+; 16                                          ; 337                           ;
++---------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------+
-; LAB Logic Elements                                                           ;
-+---------------------------------------------+--------------------------------+
-; Number of Logic Elements  (Average = 11.32) ; Number of LABs  (Total = 1015) ;
-+---------------------------------------------+--------------------------------+
-; 1                                           ; 129                            ;
-; 2                                           ; 45                             ;
-; 3                                           ; 20                             ;
-; 4                                           ; 20                             ;
-; 5                                           ; 10                             ;
-; 6                                           ; 12                             ;
-; 7                                           ; 13                             ;
-; 8                                           ; 17                             ;
-; 9                                           ; 15                             ;
-; 10                                          ; 24                             ;
-; 11                                          ; 32                             ;
-; 12                                          ; 61                             ;
-; 13                                          ; 63                             ;
-; 14                                          ; 107                            ;
-; 15                                          ; 145                            ;
-; 16                                          ; 302                            ;
-+---------------------------------------------+--------------------------------+
+; LAB Signals Sourced                                                          ;
++----------------------------------------------+-------------------------------+
+; Number of Signals Sourced  (Average = 13.69) ; Number of LABs  (Total = 536) ;
++----------------------------------------------+-------------------------------+
+; 0                                            ; 0                             ;
+; 1                                            ; 35                            ;
+; 2                                            ; 7                             ;
+; 3                                            ; 0                             ;
+; 4                                            ; 3                             ;
+; 5                                            ; 6                             ;
+; 6                                            ; 4                             ;
+; 7                                            ; 4                             ;
+; 8                                            ; 16                            ;
+; 9                                            ; 3                             ;
+; 10                                           ; 2                             ;
+; 11                                           ; 8                             ;
+; 12                                           ; 16                            ;
+; 13                                           ; 12                            ;
+; 14                                           ; 38                            ;
+; 15                                           ; 61                            ;
+; 16                                           ; 321                           ;
++----------------------------------------------+-------------------------------+
 
 
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced                                                           ;
-+----------------------------------------------+--------------------------------+
-; Number of Signals Sourced  (Average = 11.25) ; Number of LABs  (Total = 1015) ;
-+----------------------------------------------+--------------------------------+
-; 0                                            ; 0                              ;
-; 1                                            ; 129                            ;
-; 2                                            ; 45                             ;
-; 3                                            ; 20                             ;
-; 4                                            ; 20                             ;
-; 5                                            ; 10                             ;
-; 6                                            ; 12                             ;
-; 7                                            ; 14                             ;
-; 8                                            ; 25                             ;
-; 9                                            ; 15                             ;
-; 10                                           ; 24                             ;
-; 11                                           ; 32                             ;
-; 12                                           ; 62                             ;
-; 13                                           ; 63                             ;
-; 14                                           ; 107                            ;
-; 15                                           ; 145                            ;
-; 16                                           ; 292                            ;
-+----------------------------------------------+--------------------------------+
++---------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                         ;
++-------------------------------------------------+-------------------------------+
+; Number of Signals Sourced Out  (Average = 6.29) ; Number of LABs  (Total = 536) ;
++-------------------------------------------------+-------------------------------+
+; 0                                               ; 0                             ;
+; 1                                               ; 35                            ;
+; 2                                               ; 7                             ;
+; 3                                               ; 2                             ;
+; 4                                               ; 92                            ;
+; 5                                               ; 107                           ;
+; 6                                               ; 72                            ;
+; 7                                               ; 54                            ;
+; 8                                               ; 57                            ;
+; 9                                               ; 40                            ;
+; 10                                              ; 26                            ;
+; 11                                              ; 19                            ;
+; 12                                              ; 16                            ;
+; 13                                              ; 4                             ;
+; 14                                              ; 3                             ;
+; 15                                              ; 1                             ;
+; 16                                              ; 1                             ;
++-------------------------------------------------+-------------------------------+
 
 
-+----------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                          ;
-+-------------------------------------------------+--------------------------------+
-; Number of Signals Sourced Out  (Average = 5.92) ; Number of LABs  (Total = 1015) ;
-+-------------------------------------------------+--------------------------------+
-; 0                                               ; 0                              ;
-; 1                                               ; 138                            ;
-; 2                                               ; 51                             ;
-; 3                                               ; 34                             ;
-; 4                                               ; 59                             ;
-; 5                                               ; 128                            ;
-; 6                                               ; 157                            ;
-; 7                                               ; 119                            ;
-; 8                                               ; 130                            ;
-; 9                                               ; 99                             ;
-; 10                                              ; 50                             ;
-; 11                                              ; 27                             ;
-; 12                                              ; 12                             ;
-; 13                                              ; 8                              ;
-; 14                                              ; 2                              ;
-; 15                                              ; 1                              ;
-+-------------------------------------------------+--------------------------------+
-
-
-+-------------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                           ;
-+----------------------------------------------+--------------------------------+
-; Number of Distinct Inputs  (Average = 19.05) ; Number of LABs  (Total = 1015) ;
-+----------------------------------------------+--------------------------------+
-; 0                                            ; 0                              ;
-; 1                                            ; 0                              ;
-; 2                                            ; 18                             ;
-; 3                                            ; 32                             ;
-; 4                                            ; 81                             ;
-; 5                                            ; 8                              ;
-; 6                                            ; 19                             ;
-; 7                                            ; 16                             ;
-; 8                                            ; 19                             ;
-; 9                                            ; 10                             ;
-; 10                                           ; 12                             ;
-; 11                                           ; 27                             ;
-; 12                                           ; 27                             ;
-; 13                                           ; 34                             ;
-; 14                                           ; 28                             ;
-; 15                                           ; 33                             ;
-; 16                                           ; 53                             ;
-; 17                                           ; 31                             ;
-; 18                                           ; 44                             ;
-; 19                                           ; 35                             ;
-; 20                                           ; 47                             ;
-; 21                                           ; 32                             ;
-; 22                                           ; 36                             ;
-; 23                                           ; 21                             ;
-; 24                                           ; 19                             ;
-; 25                                           ; 29                             ;
-; 26                                           ; 30                             ;
-; 27                                           ; 25                             ;
-; 28                                           ; 20                             ;
-; 29                                           ; 31                             ;
-; 30                                           ; 23                             ;
-; 31                                           ; 31                             ;
-; 32                                           ; 38                             ;
-; 33                                           ; 23                             ;
-; 34                                           ; 28                             ;
-; 35                                           ; 35                             ;
-; 36                                           ; 19                             ;
-+----------------------------------------------+--------------------------------+
++------------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                          ;
++----------------------------------------------+-------------------------------+
+; Number of Distinct Inputs  (Average = 16.33) ; Number of LABs  (Total = 536) ;
++----------------------------------------------+-------------------------------+
+; 0                                            ; 0                             ;
+; 1                                            ; 0                             ;
+; 2                                            ; 8                             ;
+; 3                                            ; 14                            ;
+; 4                                            ; 14                            ;
+; 5                                            ; 3                             ;
+; 6                                            ; 7                             ;
+; 7                                            ; 1                             ;
+; 8                                            ; 3                             ;
+; 9                                            ; 4                             ;
+; 10                                           ; 7                             ;
+; 11                                           ; 9                             ;
+; 12                                           ; 18                            ;
+; 13                                           ; 31                            ;
+; 14                                           ; 23                            ;
+; 15                                           ; 51                            ;
+; 16                                           ; 73                            ;
+; 17                                           ; 37                            ;
+; 18                                           ; 44                            ;
+; 19                                           ; 38                            ;
+; 20                                           ; 34                            ;
+; 21                                           ; 47                            ;
+; 22                                           ; 14                            ;
+; 23                                           ; 18                            ;
+; 24                                           ; 15                            ;
+; 25                                           ; 10                            ;
+; 26                                           ; 4                             ;
+; 27                                           ; 2                             ;
+; 28                                           ; 2                             ;
+; 29                                           ; 3                             ;
+; 30                                           ; 0                             ;
+; 31                                           ; 1                             ;
++----------------------------------------------+-------------------------------+
 
 
 +------------------------------------------+
@@ -1755,28 +1751,28 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 17% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 75% of the available device resources in the region that extends from location X33_Y11 to location X44_Y21
+Info (170195): Router estimated average interconnect usage is 6% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 42% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
-Info (11888): Total time spent on timing analysis during the Fitter is 0.32 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
+Info (11888): Total time spent on timing analysis during the Fitter is 0.20 seconds.
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:11
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:05
 Info (144001): Generated suppressed messages file C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/output_files/DE10_EcoLogic.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5734 megabytes
-    Info: Processing ended: Sun Oct 27 01:07:18 2024
-    Info: Elapsed time: 00:00:34
-    Info: Total CPU time (on all processors): 00:00:52
+    Info: Peak virtual memory: 5692 megabytes
+    Info: Processing ended: Sun Oct 27 01:26:54 2024
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +----------------------------+
