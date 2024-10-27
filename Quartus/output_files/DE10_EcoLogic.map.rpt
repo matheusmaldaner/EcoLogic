@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_EcoLogic
-Sun Oct 27 00:50:33 2024
+Sun Oct 27 01:06:44 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -61,7 +61,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 27 00:50:33 2024          ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 27 01:06:43 2024          ;
 ; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                      ; DE10_EcoLogic                                  ;
 ; Top-level Entity Name              ; top_level                                      ;
@@ -546,7 +546,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:19     ;
+; Top            ; 00:00:15     ;
 +----------------+--------------+
 
 
@@ -556,7 +556,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Oct 27 00:50:02 2024
+    Info: Processing started: Sun Oct 27 01:06:20 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_EcoLogic -c DE10_EcoLogic
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -572,20 +572,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file top_lev
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
     Info (12022): Found design unit 1: rom-SYN File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 54
     Info (12023): Found entity 1: ROM File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/ROM.vhd Line: 43
-Info (12021): Found 2 design units, including 1 entities, in source file argmax.vhd
-    Info (12022): Found design unit 1: ArgMax-Behavioral File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd Line: 17
-    Info (12023): Found entity 1: ArgMax File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax.vhd Line: 6
-Info (12021): Found 1 design units, including 1 entities, in source file dummy_network.v
-    Info (12023): Found entity 1: dummy_network File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/dummy_network.v Line: 1
-Info (12021): Found 2 design units, including 1 entities, in source file argmax_tb.vhd
-    Info (12022): Found design unit 1: argmax_tb-tb File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd Line: 11
-    Info (12023): Found entity 1: argmax_tb File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/argmax_tb.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
-    Info (12022): Found design unit 1: ram-SYN File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/RAM.vhd Line: 55
-    Info (12023): Found entity 1: RAM File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/RAM.vhd Line: 43
-Info (12021): Found 2 design units, including 1 entities, in source file count_ones_datapath.vhd
-    Info (12022): Found design unit 1: count_ones_datapath-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones_datapath.vhd Line: 13
-    Info (12023): Found entity 1: count_ones_datapath File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones_datapath.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file count_ones.vhd
     Info (12022): Found design unit 1: count_ones-bhv File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones.vhd Line: 16
     Info (12023): Found entity 1: count_ones File: C:/Users/lando/Documents/GitHub/EcoLogic/Quartus/count_ones.vhd Line: 5
@@ -662,9 +648,9 @@ Info (21057): Implemented 11767 device resources after synthesis - the final res
     Info (21061): Implemented 11490 logic cells
     Info (21064): Implemented 256 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5121 megabytes
-    Info: Processing ended: Sun Oct 27 00:50:33 2024
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Peak virtual memory: 5116 megabytes
+    Info: Processing ended: Sun Oct 27 01:06:44 2024
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:23
 
 
