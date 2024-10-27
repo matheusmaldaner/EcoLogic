@@ -74,11 +74,11 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 
 | Nodes     | DiffLogic (µs) | FPGA (µs) | % Decrease |
 |-----------|------------------|-----------|------------|
-| 512000%   | 365.7            | 139.46    | 62%        |
-| 3584000%  | 537.89           | 177.9     | 67%        |
-| 6144000%  | 724.20           | 186.76    | 74%        |
-| 8704000%  | 907.78           | 202.54    | 78%        |
-| 11264000% | 1086.52          | 239.18    | 78%        |
+| 512000    | 365.7            | 139.46    | 62%        |
+| 3584000   | 537.89           | 177.9     | 67%        |
+| 6144000   | 724.20           | 186.76    | 74%        |
+| 8704000   | 907.78           | 202.54    | 78%        |
+| 11264000  | 1086.52          | 239.18    | 78%        |
 
 <img src="https://i.imgur.com/xxjD50Q.png" alt="inference times" width="400"/> <img src="https://i.imgur.com/6bc2icn.png" alt="comparison" width="410"/>
 
