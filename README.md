@@ -11,14 +11,14 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 ## Features ⚡️
 
 - **DiffLogic Model Training**: Optimized model training with differentiable logic gates, enabling faster inference while maintaining a sparse, energy-efficient structure.
-- **FPGA Implementation**: First-of-its-kind hardware adaptation of DiffLogic on the Basys 3 FPGA for even faster inference.
+- **FPGA Implementation**: First-of-its-kind hardware adaptation of DiffLogic on the DE10-Lite FPGA for even faster inference.
 - **IBM watsonx.ai Integration**: Utilizes IBM’s generative AI platform for real-time analysis in AI-driven disaster response.
 
 ---
 
 ## Repository Structure 📁
 
-- **ModelSim/**: Contains the latest testbench Verilog files for simulation.
+- **ModelSim/**: Contains the latest testbench HDL files for simulation.
 - **Quartus/**: Houses the most recent Quartus project files for FPGA synthesis and implementation.
 - **config/**: Configuration files, including support for 16x16 image inputs, allowing flexible input sizes.
 - **trained_models/**: Pre-trained DiffLogic models ready for FPGA deployment.
@@ -46,7 +46,7 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
    Refer to DiffLogic's official [implementation](https://github.com/Felix-Petersen/difflogic) for directions on how to install it.
 
 3. **FPGA Synthesis**  
-   Open the Quartus project files in the **Quartus/** directory and follow the instructions in the README.md file there to compile and deploy to the De10-Lite.
+   Open the Quartus project file (.qpf) in the **Quartus/** directory and follow the instructions in the README.md file there to compile and deploy to the DE10-Lite.
 
 ---
 
@@ -66,7 +66,6 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 ## Example Input and Datasets 📊
 
 - **mnist_dataset.py**: Script to prepare and preprocess the MNIST dataset for DiffLogic training.
-- **example_input.hex**: Example hex file simulating ROM input for FPGA testing.
 - **mnist_input.mif**: Memory initialization file for FPGA ROM setup.
 
 ---
