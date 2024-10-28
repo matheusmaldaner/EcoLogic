@@ -32,18 +32,20 @@ headers = {
 }
 
 # Track the previous state of the hurricane
-previous_state = None
+idx_old = None
 
-def check_hurricane_state(new_state):
+def check_hurricane_state(new_idx):
     """Compare the new state with the previous state to determine if a warning should be issued."""
-    global previous_state
-    idx_old = previous_state.find('1') if previous_state else -1
-    idx = new_state.find('1')
-    if idx_old != idx:
-        previous_state = new_state
-        # identify the idx of the channel that is 1
-        return True, idx
-    return False, idx
+    global idx_old
+    if idx_old is None:
+        idx_old = new_idx
+        return False
+    else:
+        if new_idx != idx_old:
+            idx_old = new_idx
+            return True
+        else:
+            return False
 
 def prompt_foundation_model(user_input):
     """Prompts the Watson foundation model to generate a response."""
@@ -95,11 +97,17 @@ def sample_dad3():
         digitalIn.configure(reconfigure=True, start=True)
 
         while not digitalIn.status(read_data_flag=True):
-            time.sleep(0.01)
+            time.sleep(0.0001)
 
         data = digitalIn.statusData(1)
         states = [(data[0] >> bit) & 1 for bit in range(6)]
-        return states
+        # convert to string
+        for i in range(len(states)):
+            if states[i] == 1:
+                idx = i
+                break
+        #print (states, idx)
+        return states, idx
 
 def fake_sample_dad3():
     """Fake data for testing purposes."""
@@ -113,14 +121,12 @@ def main():
     global previous_state
     while True:
         # Sample data from the DAD3
-        current_sample = sample_dad3()
+        current_sample, idx = sample_dad3()
         #current_sample = fake_sample_dad3()  # For testing purposes
-        state_description = f"The hurricane we are going to experience is a category {current_sample} hurricane. What should we do?"
+        state_description = f"The hurricane we are going to experience is a category {idx} hurricane. What should we do?"
 
         # Check if the state has changed
-        chk, idx = check_hurricane_state(state_description)
-
-        if chk:
+        if check_hurricane_state(state_description):
             print(f"New state detected: {idx}")
             warning_message = prompt_foundation_model(state_description)
             if warning_message:
@@ -131,7 +137,7 @@ def main():
             print("No significant change detected.")
 
         # Wait before the next sample
-        time.sleep(5)
+        time.sleep(1)
 
 # Run the main function
 if __name__ == "__main__":
