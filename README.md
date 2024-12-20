@@ -32,7 +32,7 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/yourusername/EcoLogic.git
+   git clone https://github.com/matheusmaldaner/EcoLogic.git
    cd EcoLogic
    ```
 
