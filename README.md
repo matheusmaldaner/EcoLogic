@@ -22,8 +22,8 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 - **Quartus/**: Houses the most recent Quartus project files for FPGA synthesis and implementation.
 - **config/**: Configuration files, including support for 16x16 image inputs, allowing flexible input sizes.
 - **trained_models/**: Pre-trained DiffLogic models ready for FPGA deployment.
-- **verilog/**: Verilog files for model deployment on the FPGA.
-- **vhdl/**: VHDL files corresponding to the Verilog implementations, providing hardware flexibility.
+- **verilog/**: Verilog files for model deployment on the FPGA (16x16 and 32x32 input sizes).
+- **vhdl/**: Reserved for future VHDL implementations (currently Verilog-only).
 - **watson ai/**: Scripts for IBM watsonx.ai integration, including data generation and DAD (Data Analyzer and Debugger) logic analyzer.
 
 ---
