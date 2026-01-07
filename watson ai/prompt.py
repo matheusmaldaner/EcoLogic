@@ -1,10 +1,21 @@
 import requests
 import json
+import os
 
-# Set up the API credentials
-api_key = "fmN5CM-_viFpSQrBfTTtqcUNZm2-C0ELThKrNNtYQb4p"
+# Set up the API credentials from environment variables
+# IMPORTANT: Set these environment variables before running:
+#   export WATSON_API_KEY="your-api-key"
+#   export WATSON_SPACE_ID="your-space-id"
+api_key = os.environ.get("WATSON_API_KEY")
 url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"  # Update based on your Watson ML instance URL
-space_id = "1925a9ba-464e-4f1f-a940-3ad952863409"
+space_id = os.environ.get("WATSON_SPACE_ID")
+
+if not api_key or not space_id:
+    raise EnvironmentError(
+        "Missing required environment variables. Please set:\n"
+        "  WATSON_API_KEY - Your IBM Watson API key\n"
+        "  WATSON_SPACE_ID - Your IBM Watson space ID"
+    )
 
 # Generate an access token using your API key
 def get_access_token(api_key):
