@@ -7,50 +7,36 @@
 <meta name="description" content="EcoLogic implements Differentiable Logic Gate Networks on a DE10-Lite FPGA for faster, energy-efficient inference.">
 <link rel="icon" href="images/ecologic.jpg">
 <style>
-  /* css variables - light theme (default) */
+  /* flat datasheet design system - no gradients, no glass, hairline borders */
   :root {
-    --bg-primary: #f5f5f7;
-    --bg-secondary: #ffffff;
-    --text-primary: #1d1d1f;
-    --text-secondary: #6e6e73;
-    --text-muted: #86868b;
-    --border: rgba(0, 0, 0, 0.08);
-    --border-hover: rgba(0, 0, 0, 0.15);
-    --accent: #10b981;
-    --accent-hover: #059669;
-    --accent-glow: rgba(16, 185, 129, 0.2);
-    --accent-dim: rgba(16, 185, 129, 0.12);
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 20px;
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    --transition: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    --transition-fast: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --ink: #171b17;
+    --ink-secondary: #4d554d;
+    --ink-muted: #79817a;
+    --hairline: #d9ddd7;
+    --hairline-strong: #b9bfb7;
+    --accent: #1d7a46;
+    --accent-ink: #ffffff;
+    --accent-surface: #e3f2e9;
+    --wire-off: #c4cac3;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   }
 
-  /* dark theme */
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg-primary: #000000;
-      --bg-secondary: #0d0d0d;
-      --text-primary: #fafafa;
-      --text-secondary: #a3a3a3;
-      --text-muted: #737373;
-      --border: #262626;
-      --border-hover: #404040;
-      --accent: #34d399;
-      --accent-hover: #10b981;
-      --accent-glow: rgba(52, 211, 153, 0.3);
-      --accent-dim: rgba(52, 211, 153, 0.15);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      --bg: #111511;
+      --surface: #181d18;
+      --ink: #e9ede8;
+      --ink-secondary: #aab2aa;
+      --ink-muted: #79827a;
+      --hairline: #2a312a;
+      --hairline-strong: #3d463d;
+      --accent: #4cc97e;
+      --accent-ink: #0c1a11;
+      --accent-surface: #1c3427;
+      --wire-off: #39413a;
     }
   }
 
@@ -59,254 +45,422 @@
   html { font-size: 16px; scroll-behavior: smooth; }
 
   body {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
   }
 
-  /* ambient background glow */
-  .bg-glow {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 60% 40% at 50% -5%, var(--accent-dim), transparent 70%),
-      radial-gradient(ellipse 40% 30% at 85% 60%, var(--accent-dim), transparent 75%);
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
-  main {
-    max-width: 880px;
+  main { max-width: 920px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* header */
+  .site-header {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .site-header .row {
+    max-width: 920px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
   }
+  .site-header .mark {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+  .site-header .mark img {
+    width: 24px; height: 24px;
+    border-radius: 4px;
+    object-fit: cover;
+    display: block;
+  }
+  .site-header nav {
+    display: flex;
+    gap: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .site-header nav a { color: var(--ink-secondary); }
+  .site-header nav a:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 560px) { .site-header nav { display: none; } }
 
   /* hero */
-  .hero {
-    min-height: 72vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5rem 0 3.5rem;
+  .hero { padding: 4.5rem 0 3rem; border-bottom: 1px solid var(--hairline); }
+  .hero .eyebrow { color: var(--accent); margin-bottom: 1rem; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin-bottom: 1rem;
   }
-
-  .hero img.logo {
-    width: 96px;
-    height: 96px;
-    border-radius: 24px;
-    object-fit: cover;
-    box-shadow: var(--shadow-lg), 0 0 40px var(--accent-glow);
+  .hero .tagline {
+    font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+    color: var(--ink-secondary);
+    max-width: 38rem;
     margin-bottom: 1.75rem;
   }
-
-  .hero h1 {
-    font-size: clamp(2.75rem, 8vw, 4.5rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.75rem;
+  .hero .award {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-secondary);
+    border: 1px solid var(--hairline-strong);
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    margin-bottom: 1.75rem;
   }
-
-  .hero .tagline {
-    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
-    color: var(--text-secondary);
-    max-width: 34rem;
-    margin-bottom: 2rem;
-  }
-
-  .hero .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
-
+  .hero .award strong { color: var(--accent); font-weight: 700; }
+  .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.4rem;
-    border-radius: 999px;
-    font-size: 0.95rem;
+    display: inline-block;
+    padding: 0.6rem 1.15rem;
+    font-family: var(--mono);
+    font-size: 0.82rem;
     font-weight: 600;
-    text-decoration: none;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    letter-spacing: 0.03em;
+    border-radius: 6px;
+    border: 1px solid var(--hairline-strong);
+    color: var(--ink);
+    background: var(--surface);
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
   }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #04150e;
-    box-shadow: 0 4px 18px var(--accent-glow);
-  }
-  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 26px var(--accent-glow); }
-
-  .btn-glass {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text-primary);
-    backdrop-filter: blur(16px) saturate(160%);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    box-shadow: var(--glass-inset);
-  }
-  .btn-glass:hover { transform: translateY(-2px); border-color: var(--border-hover); }
-
-  /* badge */
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid var(--accent-glow);
-    margin-bottom: 1.25rem;
-  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { color: var(--accent-ink); filter: brightness(1.07); }
 
   /* sections */
-  section { padding: 3rem 0; }
-
+  section { padding: 3.25rem 0; border-bottom: 1px solid var(--hairline); }
+  section:last-of-type { border-bottom: none; }
+  .section-head { margin-bottom: 1.5rem; }
+  .section-head .eyebrow { margin-bottom: 0.4rem; }
   h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 700;
+    font-size: clamp(1.45rem, 3.5vw, 1.9rem);
+    font-weight: 750;
     letter-spacing: -0.02em;
-    margin-bottom: 1.25rem;
   }
+  p.lead { color: var(--ink-secondary); max-width: 46rem; }
+  p.lead + p.lead { margin-top: 1rem; }
 
-  p.lead { color: var(--text-secondary); max-width: 44rem; }
-
-  /* glass cards */
-  .card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-xl);
-    backdrop-filter: blur(20px) saturate(170%);
-    -webkit-backdrop-filter: blur(20px) saturate(170%);
-    box-shadow: var(--shadow-md), var(--glass-inset);
-    padding: 1.75rem;
-    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  /* playground */
+  .playground {
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    background: var(--surface);
+    overflow: hidden;
   }
-  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg), var(--glass-inset); border-color: var(--border-hover); }
-
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-
-  .card h3 { font-size: 1.05rem; font-weight: 650; margin-bottom: 0.5rem; }
-  .card .step-num {
-    display: inline-flex;
+  .playground-bar {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 2rem; height: 2rem;
-    border-radius: 50%;
-    background: var(--accent-dim);
-    color: var(--accent);
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 0.85rem;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--hairline);
   }
-  .card p { color: var(--text-secondary); font-size: 0.93rem; }
+  .playground-bar .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .playground-bar .controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .ctl {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    border: 1px solid var(--hairline-strong);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .ctl:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* results table */
+  .svg-wrap { overflow-x: auto; }
+  .svg-wrap svg { display: block; min-width: 640px; width: 100%; height: auto; }
+
+  .playground-readout {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--hairline);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-secondary);
+  }
+  .playground-readout .val { color: var(--accent); font-weight: 700; }
+  .playground-note {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-top: 0.9rem;
+    max-width: 46rem;
+  }
+
+  /* svg element styles */
+  .wire { fill: none; stroke: var(--wire-off); stroke-width: 1.5; transition: stroke 0.15s ease; }
+  .wire.hi { stroke: var(--accent); stroke-width: 2; }
+  .gate-box {
+    fill: var(--surface);
+    stroke: var(--hairline-strong);
+    stroke-width: 1;
+    transition: fill 0.15s ease, stroke 0.15s ease;
+  }
+  .gate.hi .gate-box { fill: var(--accent-surface); stroke: var(--accent); }
+  .gate { cursor: pointer; }
+  .gate:hover .gate-box { stroke: var(--accent); }
+  .gate text {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--ink);
+    text-anchor: middle;
+    pointer-events: none;
+    user-select: none;
+  }
+  .gate .hint {
+    font-size: 8px;
+    font-weight: 400;
+    fill: var(--ink-muted);
+  }
+  .inbit { cursor: pointer; }
+  .inbit rect {
+    fill: var(--surface);
+    stroke: var(--hairline-strong);
+    stroke-width: 1;
+    transition: fill 0.15s ease, stroke 0.15s ease;
+  }
+  .inbit.hi rect { fill: var(--accent); stroke: var(--accent); }
+  .inbit text {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    fill: var(--ink);
+    text-anchor: middle;
+    pointer-events: none;
+    user-select: none;
+  }
+  .inbit.hi text { fill: var(--accent-ink); }
+  .inbit .idx { font-size: 8px; font-weight: 400; fill: var(--ink-muted); }
+  .outbit rect {
+    fill: var(--surface);
+    stroke: var(--hairline-strong);
+    stroke-width: 1;
+    transition: fill 0.15s ease, stroke 0.15s ease;
+  }
+  .outbit.hi rect { fill: var(--accent); stroke: var(--accent); }
+  .outbit text {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    fill: var(--ink);
+    text-anchor: middle;
+    user-select: none;
+  }
+  .outbit.hi text { fill: var(--accent-ink); }
+  .col-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    fill: var(--ink-muted);
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+
+  /* process steps */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border: 1px solid var(--hairline); border-radius: 8px; overflow: hidden; }
+  .step { padding: 1.4rem 1.4rem 1.5rem; border-top: 1px solid var(--hairline); border-left: 1px solid var(--hairline); margin-top: -1px; margin-left: -1px; background: var(--surface); }
+  .step .step-id {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.45rem; }
+  .step p { color: var(--ink-secondary); font-size: 0.9rem; }
+
+  /* results */
   .table-wrap {
     overflow-x: auto;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(170%);
-    -webkit-backdrop-filter: blur(20px) saturate(170%);
-    box-shadow: var(--shadow-md), var(--glass-inset);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    background: var(--surface);
   }
-
-  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 520px; }
-  th, td { padding: 0.8rem 1.1rem; text-align: right; white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 540px; }
+  th, td { padding: 0.75rem 1.1rem; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   th:first-child, td:first-child { text-align: left; }
   thead th {
-    font-size: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    border-bottom: 1px solid var(--hairline);
   }
-  tbody tr + tr td { border-top: 1px solid var(--border); }
-  td.gain { color: var(--accent); font-weight: 650; }
+  tbody tr + tr td { border-top: 1px solid var(--hairline); }
+  td.gain { color: var(--accent); font-weight: 700; font-family: var(--mono); font-size: 0.85rem; }
 
   .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
   .charts figure {
     background: #ffffff;
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
     padding: 0.75rem;
-    box-shadow: var(--shadow-md);
   }
-  .charts img { width: 100%; height: auto; border-radius: var(--radius-md); display: block; }
-  .charts figcaption { font-size: 0.8rem; color: #6e6e73; text-align: center; padding-top: 0.5rem; }
+  .charts img { width: 100%; height: auto; border-radius: 4px; display: block; }
+  .charts figcaption {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: #6e6e73;
+    text-align: center;
+    padding-top: 0.6rem;
+  }
+  .footnote { font-size: 0.8rem; color: var(--ink-muted); margin-top: 1rem; }
 
-  .footnote { font-size: 0.82rem; color: var(--text-muted); margin-top: 1rem; }
-
-  /* chips */
-  .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  /* stack */
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .chip {
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 550;
-    color: var(--text-primary);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: var(--glass-inset);
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    border: 1px solid var(--hairline-strong);
+    background: var(--surface);
+    color: var(--ink-secondary);
+    transition: border-color 0.15s ease, color 0.15s ease;
   }
-  .chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* links section */
-  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-  .link-card { text-decoration: none; color: inherit; display: block; }
-  .link-card .card { height: 100%; }
-  .link-card .arrow { color: var(--accent); font-weight: 700; }
-
-  /* reveal animation */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); }
-  .reveal.visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .btn, .card, .chip { transition: none; }
+  /* links */
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+  .link-card {
+    display: block;
+    padding: 1.25rem 1.4rem;
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+    background: var(--surface);
+    color: inherit;
+    transition: border-color 0.15s ease;
   }
+  .link-card:hover { border-color: var(--accent); text-decoration: none; }
+  .link-card h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .link-card .arrow { color: var(--accent); font-family: var(--mono); }
+  .link-card p { color: var(--ink-secondary); font-size: 0.88rem; }
 
   footer {
-    border-top: 1px solid var(--border);
-    margin-top: 3rem;
-    padding: 2.5rem 1.5rem;
+    border-top: 1px solid var(--hairline);
+    margin-top: 0;
+    padding: 2.25rem 1.5rem 2.75rem;
     text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    font-family: var(--mono);
   }
-  footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
-  footer a:hover { color: var(--accent-hover); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
 </style>
 </head>
 <body>
-<div class="bg-glow"></div>
+
+<header class="site-header">
+  <div class="row">
+    <span class="mark"><img src="images/ecologic.jpg" alt="">ECOLOGIC</span>
+    <nav>
+      <a href="#playground">Playground</a>
+      <a href="#how">Pipeline</a>
+      <a href="#results">Results</a>
+      <a href="#links">Links</a>
+    </nav>
+  </div>
+</header>
 
 <main>
-  <header class="hero">
-    <img class="logo" src="images/ecologic.jpg" alt="EcoLogic logo, a green circuit board design with a leaf motif">
-    <span class="badge">Most Popular — UF Gator Hack III, 2024</span>
-    <h1>EcoLogic</h1>
-    <p class="tagline">Differentiable Logic Gate Networks compiled to an FPGA for faster, energy-efficient inference.</p>
+  <section class="hero">
+    <p class="eyebrow">Differentiable logic &middot; DE10-Lite FPGA</p>
+    <h1>Neural inference,<br>rebuilt from logic gates.</h1>
+    <p class="tagline">EcoLogic trains Differentiable Logic Gate Networks and compiles them straight to
+    synthesizable Verilog and VHDL, cutting inference time by 62&ndash;78% on a DE10-Lite FPGA.</p>
+    <p class="award"><strong>Most Popular</strong> &mdash; UF Gator Hack III, 2024</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://github.com/matheusmaldaner/EcoLogic">View on GitHub</a>
-      <a class="btn btn-glass" href="https://arxiv.org/abs/2503.09910">ExpLogic on arXiv</a>
+      <a class="btn" href="https://arxiv.org/abs/2503.09910">ExpLogic on arXiv</a>
     </div>
-  </header>
+  </section>
 
-  <section class="reveal" id="what">
-    <h2>What it is</h2>
+  <section id="playground">
+    <div class="section-head">
+      <p class="eyebrow">Interactive</p>
+      <h2>Logic gate playground</h2>
+    </div>
+    <p class="lead" style="margin-bottom: 1.5rem;">This is the substrate EcoLogic runs on: a fixed network of
+    two-input logic gates, no multiplies anywhere. Toggle the input bits and watch values propagate through the
+    layers. Click any gate to cycle it through the 16 two-input boolean operations the compiler emits as Verilog.</p>
+    <div class="playground">
+      <div class="playground-bar">
+        <span class="label">8-bit input &middot; 3 gate layers &middot; 2-bit output</span>
+        <span class="controls">
+          <button class="ctl" id="rand-inputs" type="button">Randomize inputs</button>
+          <button class="ctl" id="rand-gates" type="button">Randomize gates</button>
+          <button class="ctl" id="reset-net" type="button">Reset</button>
+        </span>
+      </div>
+      <div class="svg-wrap">
+        <svg id="net" viewBox="0 0 800 400" role="img" aria-label="Interactive logic gate network diagram"></svg>
+      </div>
+      <div class="playground-readout">
+        <span>input <span class="val" id="ro-in">00000000</span></span>
+        <span>output <span class="val" id="ro-out">00</span></span>
+        <span>class <span class="val" id="ro-class">0</span></span>
+      </div>
+    </div>
+    <p class="playground-note">An illustrative toy, not the trained model: the real EcoLogic networks execute
+    binarized MNIST inference through hundreds of thousands of these gates, with every gate's operation learned
+    during training rather than clicked into place.</p>
+  </section>
+
+  <section id="what">
+    <div class="section-head">
+      <p class="eyebrow">Overview</p>
+      <h2>What it is</h2>
+    </div>
     <p class="lead">
       EcoLogic is a neurosymbolic AI project that implements the DiffLogic architecture on a DE10-Lite FPGA
       to achieve high-speed, low-power inference. Instead of running a neural network through
@@ -315,38 +469,41 @@
       integrates IBM's watsonx.ai platform for AI-driven analysis, targeting real-time applications such as
       disaster response while addressing the energy demands of data centers.
     </p>
-    <p class="lead" style="margin-top: 1rem;">
+    <p class="lead">
       Built by Matheus Kunzler Maldaner with Landon Nayab, Raul Valle, and Stephen Wormald, EcoLogic won
       the Most Popular award at UF Gator Hack III and grew into part of Matheus's undergraduate thesis work
       on differentiable logic networks.
     </p>
   </section>
 
-  <section class="reveal" id="how">
-    <h2>How it works</h2>
-    <div class="grid">
-      <div class="card">
-        <span class="step-num">1</span>
+  <section id="how">
+    <div class="section-head">
+      <p class="eyebrow">Pipeline</p>
+      <h2>How it works</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-id">STEP 01</span>
         <h3>Train DiffLogic models</h3>
         <p>A PyTorch pipeline trains networks of differentiable logic gates on MNIST, with configurable
         preprocessing such as border removal, binarization, even class partitioning, and downscaling to
         16x16 or upscaling to 32x32 inputs.</p>
       </div>
-      <div class="card">
-        <span class="step-num">2</span>
+      <div class="step">
+        <span class="step-id">STEP 02</span>
         <h3>Compile gates to HDL</h3>
         <p>Each learned gate resolves to one of 16 boolean operations. A converter walks the trained
         layers and emits a synthesizable logic_network module in Verilog or VHDL, wiring the gates
         layer by layer.</p>
       </div>
-      <div class="card">
-        <span class="step-num">3</span>
+      <div class="step">
+        <span class="step-id">STEP 03</span>
         <h3>Synthesize on the FPGA</h3>
         <p>The generated HDL is simulated with ModelSim testbenches and synthesized in Quartus for the
         DE10-Lite board, with MNIST test images loaded through a memory initialization file.</p>
       </div>
-      <div class="card">
-        <span class="step-num">4</span>
+      <div class="step">
+        <span class="step-id">STEP 04</span>
         <h3>Verify and analyze</h3>
         <p>Hex outputs read back from the FPGA are checked against the software model's predictions on the
         same data, and IBM watsonx.ai scripts handle data generation and logic-analyzer debugging.</p>
@@ -354,21 +511,24 @@
     </div>
   </section>
 
-  <section class="reveal" id="results">
-    <h2>Results</h2>
-    <p class="lead">Measured inference time of the FPGA implementation against the software DiffLogic
-    baseline, across network sizes.</p>
-    <div class="table-wrap" style="margin-top: 1.5rem;">
+  <section id="results">
+    <div class="section-head">
+      <p class="eyebrow">Benchmarks</p>
+      <h2>Results</h2>
+    </div>
+    <p class="lead" style="margin-bottom: 1.5rem;">Measured inference time of the FPGA implementation against
+    the software DiffLogic baseline, across network sizes.</p>
+    <div class="table-wrap">
       <table>
         <thead>
           <tr><th>Nodes</th><th>DiffLogic (&micro;s)</th><th>FPGA (&micro;s)</th><th>Decrease</th></tr>
         </thead>
         <tbody>
-          <tr><td>512,000</td><td>365.70</td><td>139.46</td><td class="gain">62%</td></tr>
-          <tr><td>3,584,000</td><td>537.89</td><td>177.90</td><td class="gain">67%</td></tr>
-          <tr><td>6,144,000</td><td>724.20</td><td>186.76</td><td class="gain">74%</td></tr>
-          <tr><td>8,704,000</td><td>907.78</td><td>202.54</td><td class="gain">78%</td></tr>
-          <tr><td>11,264,000</td><td>1086.52</td><td>239.18</td><td class="gain">78%</td></tr>
+          <tr><td>512,000</td><td>365.70</td><td>139.46</td><td class="gain">-62%</td></tr>
+          <tr><td>3,584,000</td><td>537.89</td><td>177.90</td><td class="gain">-67%</td></tr>
+          <tr><td>6,144,000</td><td>724.20</td><td>186.76</td><td class="gain">-74%</td></tr>
+          <tr><td>8,704,000</td><td>907.78</td><td>202.54</td><td class="gain">-78%</td></tr>
+          <tr><td>11,264,000</td><td>1086.52</td><td>239.18</td><td class="gain">-78%</td></tr>
         </tbody>
       </table>
     </div>
@@ -385,8 +545,11 @@
     <p class="footnote">Numbers reproduced from the project repository's benchmarks.</p>
   </section>
 
-  <section class="reveal" id="stack">
-    <h2>Tech stack</h2>
+  <section id="stack">
+    <div class="section-head">
+      <p class="eyebrow">Tooling</p>
+      <h2>Tech stack</h2>
+    </div>
     <div class="chips">
       <span class="chip">Verilog</span>
       <span class="chip">VHDL</span>
@@ -400,32 +563,27 @@
     </div>
   </section>
 
-  <section class="reveal" id="links">
-    <h2>Explore further</h2>
+  <section id="links">
+    <div class="section-head">
+      <p class="eyebrow">Resources</p>
+      <h2>Explore further</h2>
+    </div>
     <div class="links-grid">
       <a class="link-card" href="https://github.com/matheusmaldaner/EcoLogic">
-        <div class="card">
-          <h3>EcoLogic repository <span class="arrow">&rarr;</span></h3>
-          <p>Training notebook, HDL converters, Quartus and ModelSim projects, and pre-trained models.</p>
-        </div>
+        <h3>EcoLogic repository <span class="arrow">&rarr;</span></h3>
+        <p>Training notebook, HDL converters, Quartus and ModelSim projects, and pre-trained models.</p>
       </a>
       <a class="link-card" href="https://github.com/matheusmaldaner/DiffLogicVisualizer">
-        <div class="card">
-          <h3>DiffLogicVisualizer <span class="arrow">&rarr;</span></h3>
-          <p>Companion tool for visualizing differentiable logic gate networks.</p>
-        </div>
+        <h3>DiffLogicVisualizer <span class="arrow">&rarr;</span></h3>
+        <p>Companion tool for visualizing differentiable logic gate networks.</p>
       </a>
       <a class="link-card" href="https://arxiv.org/abs/2503.09910">
-        <div class="card">
-          <h3>ExpLogic paper <span class="arrow">&rarr;</span></h3>
-          <p>Related research on explaining logic networks, on arXiv.</p>
-        </div>
+        <h3>ExpLogic paper <span class="arrow">&rarr;</span></h3>
+        <p>Related research on explaining logic networks, on arXiv.</p>
       </a>
       <a class="link-card" href="https://devpost.com/software/ecologic">
-        <div class="card">
-          <h3>Devpost + demo video <span class="arrow">&rarr;</span></h3>
-          <p>Hackathon submission page, with the original demo on <span style="white-space: nowrap;">YouTube</span>.</p>
-        </div>
+        <h3>Devpost + demo video <span class="arrow">&rarr;</span></h3>
+        <p>Hackathon submission page, with the original demo on YouTube.</p>
       </a>
     </div>
   </section>
@@ -436,13 +594,260 @@
 </footer>
 
 <script>
-  // reveal sections on scroll
-  const observer = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+(function () {
+  "use strict";
+
+  // the 16 two-input boolean operations, as truth tables [f(0,0), f(0,1), f(1,0), f(1,1)]
+  // ordered so clicking cycles through the familiar gates first
+  var OPS = [
+    { name: "AND",   tt: [0, 0, 0, 1] },
+    { name: "NAND",  tt: [1, 1, 1, 0] },
+    { name: "OR",    tt: [0, 1, 1, 1] },
+    { name: "NOR",   tt: [1, 0, 0, 0] },
+    { name: "XOR",   tt: [0, 1, 1, 0] },
+    { name: "XNOR",  tt: [1, 0, 0, 1] },
+    { name: "A",     tt: [0, 0, 1, 1] },
+    { name: "NOT A", tt: [1, 1, 0, 0] },
+    { name: "B",     tt: [0, 1, 0, 1] },
+    { name: "NOT B", tt: [1, 0, 1, 0] },
+    { name: "A&~B",  tt: [0, 0, 1, 0] },
+    { name: "~A&B",  tt: [0, 1, 0, 0] },
+    { name: "A|~B",  tt: [1, 0, 1, 1] },
+    { name: "~A|B",  tt: [1, 1, 0, 1] },
+    { name: "TRUE",  tt: [1, 1, 1, 1] },
+    { name: "FALSE", tt: [0, 0, 0, 0] }
+  ];
+
+  // network topology: 8 inputs -> 4 gates -> 4 gates -> 2 gates
+  // each gate lists [sourceA, sourceB] as indices into the previous column
+  var TOPOLOGY = [
+    [[0, 1], [2, 3], [4, 5], [6, 7]],
+    [[0, 1], [1, 2], [2, 3], [3, 0]],
+    [[0, 1], [2, 3]]
+  ];
+  var DEFAULT_OPS = [
+    [0, 2, 4, 1],   // AND, OR, XOR, NAND
+    [4, 0, 2, 5],   // XOR, AND, OR, XNOR
+    [2, 4]          // OR, XOR
+  ];
+  var DEFAULT_INPUTS = [1, 0, 1, 1, 0, 0, 1, 0];
+
+  var inputs = DEFAULT_INPUTS.slice();
+  var gateOps = DEFAULT_OPS.map(function (l) { return l.slice(); });
+
+  var svg = document.getElementById("net");
+  var NS = "http://www.w3.org/2000/svg";
+
+  // layout constants
+  var COL_X = [70, 270, 470, 650];
+  var TOP = 52, BOT = 375;
+  var IN_W = 34, IN_H = 26;
+  var GATE_W = 64, GATE_H = 34;
+  var OUT_W = 34, OUT_H = 26;
+
+  function yFor(count, i) {
+    var span = BOT - TOP;
+    return TOP + span * (i + 0.5) / count;
+  }
+
+  function el(tag, attrs) {
+    var node = document.createElementNS(NS, tag);
+    for (var k in attrs) node.setAttribute(k, attrs[k]);
+    return node;
+  }
+
+  function wirePath(x1, y1, x2, y2) {
+    var mx = (x1 + x2) / 2;
+    return "M " + x1 + " " + y1 + " C " + mx + " " + y1 + ", " + mx + " " + y2 + ", " + x2 + " " + y2;
+  }
+
+  // element references filled in by build()
+  var inputNodes = [], gateNodes = [], wireNodes = [], outNodes = [];
+
+  function build() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    inputNodes = []; gateNodes = []; wireNodes = []; outNodes = [];
+
+    // column labels
+    var labels = ["INPUT BITS", "LAYER 1", "LAYER 2", "LAYER 3 / OUT"];
+    for (var c = 0; c < 4; c++) {
+      var t = el("text", { x: COL_X[c] + (c === 0 ? IN_W / 2 : GATE_W / 2), y: 24, "class": "col-label" });
+      t.textContent = labels[c];
+      svg.appendChild(t);
     }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // wires first so they sit under the boxes
+    var wiresGroup = el("g", {});
+    svg.appendChild(wiresGroup);
+
+    TOPOLOGY.forEach(function (layer, li) {
+      wireNodes.push(layer.map(function (srcs, gi) {
+        var gy = yFor(layer.length, gi);
+        var x2 = COL_X[li + 1];
+        return srcs.map(function (src, pin) {
+          var x1, y1;
+          if (li === 0) {
+            x1 = COL_X[0] + IN_W;
+            y1 = yFor(8, src);
+          } else {
+            x1 = COL_X[li] + GATE_W;
+            y1 = yFor(TOPOLOGY[li - 1].length, src);
+          }
+          var y2 = gy - GATE_H / 2 + (pin === 0 ? 11 : GATE_H - 11);
+          var p = el("path", { d: wirePath(x1, y1, x2, y2), "class": "wire" });
+          wiresGroup.appendChild(p);
+          return p;
+        });
+      }));
+    });
+
+    // output stub wires from layer 3 gates to output bit boxes
+    var outWires = [];
+    for (var o = 0; o < 2; o++) {
+      var oy = yFor(2, o);
+      var p = el("path", {
+        d: wirePath(COL_X[3] + GATE_W, oy, COL_X[3] + GATE_W + 28, oy),
+        "class": "wire"
+      });
+      wiresGroup.appendChild(p);
+      outWires.push(p);
+    }
+    wireNodes.push([outWires]);
+
+    // input bit toggles
+    for (var i = 0; i < 8; i++) {
+      (function (i) {
+        var y = yFor(8, i);
+        var g = el("g", {
+          "class": "inbit",
+          tabindex: "0",
+          role: "switch",
+          "aria-checked": inputs[i] ? "true" : "false",
+          "aria-label": "input bit x" + i
+        });
+        var r = el("rect", { x: COL_X[0], y: y - IN_H / 2, width: IN_W, height: IN_H, rx: 4 });
+        var v = el("text", { x: COL_X[0] + IN_W / 2, y: y + 4 });
+        var idx = el("text", { x: COL_X[0] - 16, y: y + 3, "class": "idx" });
+        idx.setAttribute("text-anchor", "middle");
+        idx.textContent = "x" + i;
+        g.appendChild(r); g.appendChild(v);
+        svg.appendChild(idx);
+        svg.appendChild(g);
+        function toggle() { inputs[i] = 1 - inputs[i]; update(); }
+        g.addEventListener("click", toggle);
+        g.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+        });
+        inputNodes.push({ g: g, v: v });
+      })(i);
+    }
+
+    // gates
+    TOPOLOGY.forEach(function (layer, li) {
+      gateNodes.push(layer.map(function (_, gi) {
+        var y = yFor(layer.length, gi);
+        var x = COL_X[li + 1];
+        var g = el("g", { "class": "gate", tabindex: "0", role: "button" });
+        var r = el("rect", { x: x, y: y - GATE_H / 2, width: GATE_W, height: GATE_H, rx: 6, "class": "gate-box" });
+        var name = el("text", { x: x + GATE_W / 2, y: y + 1 });
+        var hint = el("text", { x: x + GATE_W / 2, y: y + 12, "class": "hint" });
+        hint.textContent = "click to cycle";
+        g.appendChild(r); g.appendChild(name); g.appendChild(hint);
+        svg.appendChild(g);
+        function cycle() {
+          gateOps[li][gi] = (gateOps[li][gi] + 1) % OPS.length;
+          update();
+        }
+        g.addEventListener("click", cycle);
+        g.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cycle(); }
+        });
+        return { g: g, name: name };
+      }));
+    });
+
+    // output bit boxes
+    for (var o = 0; o < 2; o++) {
+      var y = yFor(2, o);
+      var g = el("g", { "class": "outbit" });
+      var r = el("rect", { x: COL_X[3] + GATE_W + 28, y: y - OUT_H / 2, width: OUT_W, height: OUT_H, rx: 4 });
+      var v = el("text", { x: COL_X[3] + GATE_W + 28 + OUT_W / 2, y: y + 4 });
+      g.appendChild(r); g.appendChild(v);
+      svg.appendChild(g);
+      outNodes.push({ g: g, v: v });
+    }
+
+    update();
+  }
+
+  function evaluate() {
+    var values = [inputs.slice()];
+    TOPOLOGY.forEach(function (layer, li) {
+      var prev = values[li];
+      values.push(layer.map(function (srcs, gi) {
+        var a = prev[srcs[0]], b = prev[srcs[1]];
+        return OPS[gateOps[li][gi]].tt[a * 2 + b];
+      }));
+    });
+    return values;
+  }
+
+  function update() {
+    var values = evaluate();
+
+    inputNodes.forEach(function (n, i) {
+      n.g.classList.toggle("hi", inputs[i] === 1);
+      n.g.setAttribute("aria-checked", inputs[i] ? "true" : "false");
+      n.v.textContent = inputs[i];
+    });
+
+    TOPOLOGY.forEach(function (layer, li) {
+      layer.forEach(function (srcs, gi) {
+        var node = gateNodes[li][gi];
+        var op = OPS[gateOps[li][gi]];
+        node.name.textContent = op.name;
+        node.g.classList.toggle("hi", values[li + 1][gi] === 1);
+        node.g.setAttribute("aria-label",
+          "gate " + op.name + " in layer " + (li + 1) + ", output " + values[li + 1][gi] + ", activate to cycle operation");
+        // wire into pin A / pin B carries the source value
+        srcs.forEach(function (src, pin) {
+          wireNodes[li][gi][pin].classList.toggle("hi", values[li][src] === 1);
+        });
+      });
+    });
+
+    // output stub wires and boxes
+    var out = values[values.length - 1];
+    for (var o = 0; o < 2; o++) {
+      wireNodes[3][0][o].classList.toggle("hi", out[o] === 1);
+      outNodes[o].g.classList.toggle("hi", out[o] === 1);
+      outNodes[o].v.textContent = out[o];
+    }
+
+    document.getElementById("ro-in").textContent = inputs.join("");
+    document.getElementById("ro-out").textContent = out.join("");
+    document.getElementById("ro-class").textContent = out[0] * 2 + out[1];
+  }
+
+  document.getElementById("rand-inputs").addEventListener("click", function () {
+    inputs = inputs.map(function () { return Math.random() < 0.5 ? 0 : 1; });
+    update();
+  });
+  document.getElementById("rand-gates").addEventListener("click", function () {
+    gateOps = TOPOLOGY.map(function (layer) {
+      // random draw from the familiar gates so the network stays interesting
+      return layer.map(function () { return Math.floor(Math.random() * 6); });
+    });
+    update();
+  });
+  document.getElementById("reset-net").addEventListener("click", function () {
+    inputs = DEFAULT_INPUTS.slice();
+    gateOps = DEFAULT_OPS.map(function (l) { return l.slice(); });
+    update();
+  });
+
+  build();
+})();
 </script>
 </body>
 </html>
