@@ -9,6 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+  } catch (e) {}
+})();
+</script>
 <style>
   /* peptides academy design language, flattened - solid surfaces, no gradients, no glass */
   :root {
@@ -36,7 +44,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
       --color-bg: #111114;
       --color-surface: #1c1c20;
       --color-text: #e8e8ec;
@@ -50,6 +58,21 @@
       --btn-depth-neutral: #000000;
       --wire-off: #3a3a40;
     }
+  }
+
+  :root[data-theme="dark"] {
+    --color-bg: #111114;
+    --color-surface: #1c1c20;
+    --color-text: #e8e8ec;
+    --color-text-muted: #b4b4b8;
+    --color-border: #333338;
+    --color-primary: #10b981;
+    --color-primary-hover: #34d39e;
+    --color-bg-alt: #18181c;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.5);
+    --btn-depth-neutral: #000000;
+    --wire-off: #3a3a40;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -73,14 +96,6 @@
   }
 
   main { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
-
-  .eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-  }
 
   /* header */
   .site-header {
@@ -123,10 +138,33 @@
   .site-header nav a { color: var(--color-text-muted); }
   .site-header nav a:hover { color: var(--color-text); text-decoration: none; }
   @media (max-width: 560px) { .site-header nav { display: none; } }
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: none;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+  }
+  .theme-toggle:hover { border-color: var(--color-primary); color: var(--color-primary); }
+  .theme-toggle svg { width: 16px; height: 16px; display: block; }
+  .theme-toggle .icon-sun { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+  }
+  :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+  :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
   /* hero */
   .hero { padding: 5rem 0 4rem; }
-  .hero .eyebrow { margin-bottom: 1rem; }
   .hero h1 {
     font-size: clamp(2.4rem, 6vw, 3.2rem);
     font-weight: 800;
@@ -183,7 +221,6 @@
   section { padding: 2.25rem 0; }
   main > section { padding: 2.5rem 0; }
   .section-head { margin-bottom: 1.5rem; }
-  .section-head .eyebrow { margin-bottom: 0.4rem; }
   h2 {
     font-size: 1.6rem;
     font-weight: 700;
@@ -444,12 +481,15 @@
       <a href="#results">Results</a>
       <a href="#links">Links</a>
     </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="toggle theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="7" y2="7"></line><line x1="17" y1="17" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="7" y2="17"></line><line x1="17" y1="7" x2="19.1" y2="4.9"></line></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+    </button>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <p class="eyebrow">Differentiable logic &middot; DE10-Lite FPGA</p>
     <h1>Neural inference,<br>rebuilt from logic gates.</h1>
     <p class="tagline">EcoLogic trains Differentiable Logic Gate Networks and compiles them straight to
     synthesizable Verilog and VHDL, cutting inference time by 62&ndash;78% on a DE10-Lite FPGA.</p>
@@ -462,7 +502,6 @@
 
   <section id="playground">
     <div class="section-head">
-      <p class="eyebrow">Interactive</p>
       <h2>Logic gate playground</h2>
     </div>
     <p class="lead" style="margin-bottom: 1.5rem;">This is the substrate EcoLogic runs on: a fixed network of
@@ -493,7 +532,6 @@
 
   <section id="what">
     <div class="section-head">
-      <p class="eyebrow">Overview</p>
       <h2>What it is</h2>
     </div>
     <p class="lead">
@@ -513,7 +551,6 @@
 
   <section id="how">
     <div class="section-head">
-      <p class="eyebrow">Pipeline</p>
       <h2>How it works</h2>
     </div>
     <div class="steps">
@@ -548,7 +585,6 @@
 
   <section id="results">
     <div class="section-head">
-      <p class="eyebrow">Benchmarks</p>
       <h2>Results</h2>
     </div>
     <p class="lead" style="margin-bottom: 1.5rem;">Measured inference time of the FPGA implementation against
@@ -582,7 +618,6 @@
 
   <section id="stack">
     <div class="section-head">
-      <p class="eyebrow">Tooling</p>
       <h2>Tech stack</h2>
     </div>
     <div class="chips">
@@ -600,7 +635,6 @@
 
   <section id="links">
     <div class="section-head">
-      <p class="eyebrow">Resources</p>
       <h2>Explore further</h2>
     </div>
     <div class="links-grid">
@@ -879,6 +913,15 @@
     inputs = DEFAULT_INPUTS.slice();
     gateOps = DEFAULT_OPS.map(function (l) { return l.slice(); });
     update();
+  });
+
+  // theme toggle: flips effective theme, persists choice; icon swap is css-driven
+  document.getElementById("theme-toggle").addEventListener("click", function () {
+    var stored = document.documentElement.dataset.theme;
+    var effective = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var next = effective === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
   build();
