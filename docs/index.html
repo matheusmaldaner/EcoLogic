@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EcoLogic — DiffLogic Inference on FPGA</title>
+<meta name="description" content="EcoLogic implements Differentiable Logic Gate Networks on a DE10-Lite FPGA for faster, energy-efficient inference.">
+<link rel="icon" href="images/ecologic.jpg">
+<style>
+  /* css variables - light theme (default) */
+  :root {
+    --bg-primary: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --text-muted: #86868b;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.15);
+    --accent: #10b981;
+    --accent-hover: #059669;
+    --accent-glow: rgba(16, 185, 129, 0.2);
+    --accent-dim: rgba(16, 185, 129, 0.12);
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    --transition: 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    --transition-fast: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  /* dark theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #000000;
+      --bg-secondary: #0d0d0d;
+      --text-primary: #fafafa;
+      --text-secondary: #a3a3a3;
+      --text-muted: #737373;
+      --border: #262626;
+      --border-hover: #404040;
+      --accent: #34d399;
+      --accent-hover: #10b981;
+      --accent-glow: rgba(52, 211, 153, 0.3);
+      --accent-dim: rgba(52, 211, 153, 0.15);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ambient background glow */
+  .bg-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% -5%, var(--accent-dim), transparent 70%),
+      radial-gradient(ellipse 40% 30% at 85% 60%, var(--accent-dim), transparent 75%);
+  }
+
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* hero */
+  .hero {
+    min-height: 72vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 0 3.5rem;
+  }
+
+  .hero img.logo {
+    width: 96px;
+    height: 96px;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: var(--shadow-lg), 0 0 40px var(--accent-glow);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 8vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero .tagline {
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    color: var(--text-secondary);
+    max-width: 34rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #04150e;
+    box-shadow: 0 4px 18px var(--accent-glow);
+  }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 26px var(--accent-glow); }
+
+  .btn-glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    box-shadow: var(--glass-inset);
+  }
+  .btn-glass:hover { transform: translateY(-2px); border-color: var(--border-hover); }
+
+  /* badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-glow);
+    margin-bottom: 1.25rem;
+  }
+
+  /* sections */
+  section { padding: 3rem 0; }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  p.lead { color: var(--text-secondary); max-width: 44rem; }
+
+  /* glass cards */
+  .card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    box-shadow: var(--shadow-md), var(--glass-inset);
+    padding: 1.75rem;
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg), var(--glass-inset); border-color: var(--border-hover); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+
+  .card h3 { font-size: 1.05rem; font-weight: 650; margin-bottom: 0.5rem; }
+  .card .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem; height: 2rem;
+    border-radius: 50%;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.85rem;
+  }
+  .card p { color: var(--text-secondary); font-size: 0.93rem; }
+
+  /* results table */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    box-shadow: var(--shadow-md), var(--glass-inset);
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 520px; }
+  th, td { padding: 0.8rem 1.1rem; text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr + tr td { border-top: 1px solid var(--border); }
+  td.gain { color: var(--accent); font-weight: 650; }
+
+  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+  .charts figure {
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 0.75rem;
+    box-shadow: var(--shadow-md);
+  }
+  .charts img { width: 100%; height: auto; border-radius: var(--radius-md); display: block; }
+  .charts figcaption { font-size: 0.8rem; color: #6e6e73; text-align: center; padding-top: 0.5rem; }
+
+  .footnote { font-size: 0.82rem; color: var(--text-muted); margin-top: 1rem; }
+
+  /* chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .chip {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 550;
+    color: var(--text-primary);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--glass-inset);
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+  .chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+  /* links section */
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+  .link-card { text-decoration: none; color: inherit; display: block; }
+  .link-card .card { height: 100%; }
+  .link-card .arrow { color: var(--accent); font-weight: 700; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1); }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .card, .chip { transition: none; }
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  footer a:hover { color: var(--accent-hover); }
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<main>
+  <header class="hero">
+    <img class="logo" src="images/ecologic.jpg" alt="EcoLogic logo, a green circuit board design with a leaf motif">
+    <span class="badge">Most Popular — UF Gator Hack III, 2024</span>
+    <h1>EcoLogic</h1>
+    <p class="tagline">Differentiable Logic Gate Networks compiled to an FPGA for faster, energy-efficient inference.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/matheusmaldaner/EcoLogic">View on GitHub</a>
+      <a class="btn btn-glass" href="https://arxiv.org/abs/2503.09910">ExpLogic on arXiv</a>
+    </div>
+  </header>
+
+  <section class="reveal" id="what">
+    <h2>What it is</h2>
+    <p class="lead">
+      EcoLogic is a neurosymbolic AI project that implements the DiffLogic architecture on a DE10-Lite FPGA
+      to achieve high-speed, low-power inference. Instead of running a neural network through
+      multiply-accumulate arithmetic, DiffLogic trains a network of two-input logic gates, and EcoLogic
+      compiles that trained gate network directly into synthesizable Verilog and VHDL. The project also
+      integrates IBM's watsonx.ai platform for AI-driven analysis, targeting real-time applications such as
+      disaster response while addressing the energy demands of data centers.
+    </p>
+    <p class="lead" style="margin-top: 1rem;">
+      Built by Matheus Kunzler Maldaner with Landon Nayab, Raul Valle, and Stephen Wormald, EcoLogic won
+      the Most Popular award at UF Gator Hack III and grew into part of Matheus's undergraduate thesis work
+      on differentiable logic networks.
+    </p>
+  </section>
+
+  <section class="reveal" id="how">
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="step-num">1</span>
+        <h3>Train DiffLogic models</h3>
+        <p>A PyTorch pipeline trains networks of differentiable logic gates on MNIST, with configurable
+        preprocessing such as border removal, binarization, even class partitioning, and downscaling to
+        16x16 or upscaling to 32x32 inputs.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">2</span>
+        <h3>Compile gates to HDL</h3>
+        <p>Each learned gate resolves to one of 16 boolean operations. A converter walks the trained
+        layers and emits a synthesizable logic_network module in Verilog or VHDL, wiring the gates
+        layer by layer.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">3</span>
+        <h3>Synthesize on the FPGA</h3>
+        <p>The generated HDL is simulated with ModelSim testbenches and synthesized in Quartus for the
+        DE10-Lite board, with MNIST test images loaded through a memory initialization file.</p>
+      </div>
+      <div class="card">
+        <span class="step-num">4</span>
+        <h3>Verify and analyze</h3>
+        <p>Hex outputs read back from the FPGA are checked against the software model's predictions on the
+        same data, and IBM watsonx.ai scripts handle data generation and logic-analyzer debugging.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="results">
+    <h2>Results</h2>
+    <p class="lead">Measured inference time of the FPGA implementation against the software DiffLogic
+    baseline, across network sizes.</p>
+    <div class="table-wrap" style="margin-top: 1.5rem;">
+      <table>
+        <thead>
+          <tr><th>Nodes</th><th>DiffLogic (&micro;s)</th><th>FPGA (&micro;s)</th><th>Decrease</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>512,000</td><td>365.70</td><td>139.46</td><td class="gain">62%</td></tr>
+          <tr><td>3,584,000</td><td>537.89</td><td>177.90</td><td class="gain">67%</td></tr>
+          <tr><td>6,144,000</td><td>724.20</td><td>186.76</td><td class="gain">74%</td></tr>
+          <tr><td>8,704,000</td><td>907.78</td><td>202.54</td><td class="gain">78%</td></tr>
+          <tr><td>11,264,000</td><td>1086.52</td><td>239.18</td><td class="gain">78%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="charts">
+      <figure>
+        <img src="images/inference-times.png" alt="Chart of inference times across network sizes" loading="lazy">
+        <figcaption>Inference time versus network size</figcaption>
+      </figure>
+      <figure>
+        <img src="images/comparison.png" alt="Chart comparing DiffLogic software and FPGA inference" loading="lazy">
+        <figcaption>Software DiffLogic versus FPGA implementation</figcaption>
+      </figure>
+    </div>
+    <p class="footnote">Numbers reproduced from the project repository's benchmarks.</p>
+  </section>
+
+  <section class="reveal" id="stack">
+    <h2>Tech stack</h2>
+    <div class="chips">
+      <span class="chip">Verilog</span>
+      <span class="chip">VHDL</span>
+      <span class="chip">DE10-Lite FPGA</span>
+      <span class="chip">Quartus</span>
+      <span class="chip">ModelSim</span>
+      <span class="chip">DiffLogic</span>
+      <span class="chip">PyTorch</span>
+      <span class="chip">MNIST</span>
+      <span class="chip">IBM watsonx.ai</span>
+    </div>
+  </section>
+
+  <section class="reveal" id="links">
+    <h2>Explore further</h2>
+    <div class="links-grid">
+      <a class="link-card" href="https://github.com/matheusmaldaner/EcoLogic">
+        <div class="card">
+          <h3>EcoLogic repository <span class="arrow">&rarr;</span></h3>
+          <p>Training notebook, HDL converters, Quartus and ModelSim projects, and pre-trained models.</p>
+        </div>
+      </a>
+      <a class="link-card" href="https://github.com/matheusmaldaner/DiffLogicVisualizer">
+        <div class="card">
+          <h3>DiffLogicVisualizer <span class="arrow">&rarr;</span></h3>
+          <p>Companion tool for visualizing differentiable logic gate networks.</p>
+        </div>
+      </a>
+      <a class="link-card" href="https://arxiv.org/abs/2503.09910">
+        <div class="card">
+          <h3>ExpLogic paper <span class="arrow">&rarr;</span></h3>
+          <p>Related research on explaining logic networks, on arXiv.</p>
+        </div>
+      </a>
+      <a class="link-card" href="https://devpost.com/software/ecologic">
+        <div class="card">
+          <h3>Devpost + demo video <span class="arrow">&rarr;</span></h3>
+          <p>Hackathon submission page, with the original demo on <span style="white-space: nowrap;">YouTube</span>.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>EcoLogic by Matheus Kunzler Maldaner and team &middot; <a href="https://matheus.wiki">matheus.wiki</a></p>
+</footer>
+
+<script>
+  // reveal sections on scroll
+  const observer = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    }
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+</body>
+</html>
