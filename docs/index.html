@@ -43,23 +43,6 @@
     --font-mono: 'SF Mono', 'Fira Code', Consolas, monospace;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --color-bg: #111114;
-      --color-surface: #1c1c20;
-      --color-text: #e8e8ec;
-      --color-text-muted: #b4b4b8;
-      --color-border: #333338;
-      --color-primary: #10b981;
-      --color-primary-hover: #34d39e;
-      --color-bg-alt: #18181c;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-      --shadow-md: 0 4px 8px rgba(0,0,0,0.5);
-      --btn-depth-neutral: #000000;
-      --wire-off: #3a3a40;
-    }
-  }
-
   :root[data-theme="dark"] {
     --color-bg: #111114;
     --color-surface: #1c1c20;
@@ -156,10 +139,6 @@
   .theme-toggle:hover { border-color: var(--color-primary); color: var(--color-primary); }
   .theme-toggle svg { width: 16px; height: 16px; display: block; }
   .theme-toggle .icon-sun { display: none; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
-    :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
-  }
   :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
@@ -916,7 +895,7 @@
   // theme toggle: flips effective theme, persists choice; icon swap is css-driven
   document.getElementById("theme-toggle").addEventListener("click", function () {
     var stored = document.documentElement.dataset.theme;
-    var effective = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var effective = stored || "light";
     var next = effective === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch (e) {}
