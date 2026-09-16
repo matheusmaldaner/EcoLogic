@@ -89,3 +89,7 @@ EcoLogic is a neurosymbolic AI solution that leverages the DiffLogic architectur
 ## Contributing 🤝
 
 Contributions are welcome! Please fork this repository and submit a pull request. Ensure that your code passes all tests and adheres to our style guide.
+
+## Thesis reproducibility archive
+
+The retrospective artifact recovery, accuracy review, provenance records, errata, and executable checks for the associated undergraduate thesis are available in the public [Undergraduate Thesis Reproducibility Archive](https://github.com/matheusmaldaner/UndergradThesis).
